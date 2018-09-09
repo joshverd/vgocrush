@@ -1,0 +1,16 @@
+.gitignore
+.git
+.idea
+node_modules/
+assets/
+*.md
+*.zip
+npm-debug.log
+.eslintrc.js
+data/
+src/
+spec/
+*.sh
+admin/
+administration-ui
+scripts

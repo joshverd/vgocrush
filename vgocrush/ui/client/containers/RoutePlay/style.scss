@@ -1,0 +1,129 @@
+
+.container {
+  position: relative;
+
+  display: flex;
+  padding: 0 25px;
+  margin: 10px 0;
+  overflow: hidden;
+  justify-content: center;
+  flex: 1;
+}
+
+.leftSide {
+  display: flex;
+  flex-direction: column;
+  // max-width: 600px;
+  min-width: 400px;
+  max-width: 400px;
+  flex: 1;
+}
+
+.rightSide {
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+
+  // max-width: 730px;
+  flex: 1;
+}
+
+.rideSideSegment {
+  display: flex;
+  flex-direction: column;
+
+  flex: 1;
+  margin-left: 25px;
+}
+
+.tabMenu {
+  display: flex;
+  align-items: center;
+
+  > a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    flex: 1;
+
+    color: #cccccc;
+    font-size: 0.85rem;
+    letter-spacing: 0.03rem;
+    text-decoration: none;
+    text-transform: uppercase;
+
+    min-height: 55px;
+    height: 55px;
+
+    border-right: 1px solid #efefef;
+    border-bottom: 1px solid #efefef;
+
+    &:hover {
+      color: #8a8c8c;
+    }
+
+    &:focus {
+      outline: none;
+    }
+  }
+}
+
+.tabActive {
+  background: #fbfbfb;
+  color: #8a8c8c !important;
+  border-bottom: 1px solid #e0e0e0 !important;
+}
+
+.currentBets {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  flex: 1;
+
+  overflow: hidden;
+  overflow-y: auto;
+
+  &::-webkit-scrollbar {
+    width: 0;
+  }
+}
+
+.mock {
+  height: 220px;
+  // background: rgba(0, 0, 0, 0.1);
+  margin: 15px 17px;
+  margin-bottom: 0px;
+  border-radius: 5px;
+}
+
+.currentGameContainer {
+}
+
+@media (min-width: 1500px) {
+  .leftSide {
+    max-width: 530px;
+  }
+}
+//
+// @media (max-width: 1200px) {
+//   .container {
+//     flex-direction: column;
+//   }
+//
+//   .leftSide {
+//     max-width: 100%;
+//     width: 100%;
+//     flex: none;
+//     margin-bottom: 25px;
+//   }
+//
+//   .rideSideSegment {
+//     margin-left: 0;
+//   }
+// }
+
+.warningSign {
+  padding: 10px 10px;
+  font-weight: bold;
+}

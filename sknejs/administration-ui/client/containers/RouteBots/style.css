@@ -1,0 +1,47 @@
+
+.container {
+}
+
+.botsTableContainer {
+  margin: 25px 35px 0 35px;
+}
+
+.dialog {
+  min-width: 400px;
+}
+
+.spaceTop {
+  margin-top: 15px;
+}
+
+.spaceBottom {
+  margin-bottom: 10px;
+}
+
+.dimmed {
+  opacity: 0.4;
+}
+
+.contextMenuTitle {
+  font-weight: bold;
+  font-size: 0.8rem;
+}
+
+.totpCode {
+  font-weight: 900;
+  font-size: 4rem;
+  text-align: center;
+}
+
+.opBalance {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 15px;
+}
+
+.opBalance > div {
+  font-size: 3rem;
+  font-weight: 100;
+  color: #e74c3c;
+}

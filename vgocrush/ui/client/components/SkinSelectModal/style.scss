@@ -1,0 +1,27 @@
+.skins {
+  display: flex;
+  flex-direction: column;
+}
+
+.skinsContainer {
+  display: flex;
+  justify-content: center;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+}
+
+.sortButton {
+  color: #949aa4;
+  background: none;
+  margin-left: 15px;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+
+  margin-bottom: 10px;
+}

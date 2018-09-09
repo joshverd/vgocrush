@@ -1,0 +1,48 @@
+
+.modal {
+  position: relative;
+
+  width: 100%;
+  max-width: 700px;
+  max-height: 90vh;
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: stretch;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.modalBody {
+  padding: 15px 10px;
+  box-sizing: border-box;
+}
+
+.tabs {
+  width: 100%;
+}
+
+.form {
+  margin-top: 15px;
+}
+
+.vaultForm {
+  display: flex;
+  margin-top: 15px;
+  align-items: center;
+}
+
+.spinnerContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  position: absolute 0;
+  z-index: 10;
+
+  background: rgba(255, 255, 255, 0.75);
+}
+
+.blur {
+  filter: blur(3px);
+}

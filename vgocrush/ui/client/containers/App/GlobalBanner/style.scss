@@ -1,0 +1,33 @@
+
+.banner {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #2679df;
+  color: #fff;
+  font-weight: 900;
+  max-height: 0;
+  text-align: center;
+  overflow: hidden;
+
+  animation: enter 2s ease forwards;
+
+  > a, a:visited {
+    color: #fff;
+    border-bottom: 2px solid #fff;
+  }
+}
+
+@keyframes enter {
+  from {
+    min-height: 0px;
+    max-height: 0px;
+    padding: 0px;
+  }
+
+  to {
+    max-height: 50px;
+    min-height: 25px;
+    padding: 5px;
+  }
+}

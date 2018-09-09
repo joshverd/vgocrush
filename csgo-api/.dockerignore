@@ -1,0 +1,8 @@
+*.zip
+*.log
+
+csgo-api
+!csgo-api/api/resources
+!csgo-api/api/dist
+!csgo-api/api/config/*.json
+!csgo-api/api/package.json

@@ -1,0 +1,153 @@
+
+.skins {
+  position: relative;
+
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: flex-start;
+
+  overflow: auto;
+
+  &::-webkit-scrollbar {
+    width: 0;
+  }
+}
+
+.skin {
+  composes: skin from '../Skin/style.scss';
+  background-color: #171729;
+  border-radius: 3px;
+
+  &:hover {
+    background-color: #111323;
+  }
+}
+
+.newSkin {
+  transform: scale(1.15);
+  animation: newSkinEnter 0.9s ease forwards;
+  animation-iteration-count: 1;
+}
+
+@keyframes newSkinEnter {
+  from {
+    transform: scale(1.15);
+  }
+
+  to {
+    transform: scale(1);
+  }
+}
+
+.skinName {
+  composes: skinName from '../Skin/style.scss';
+  color: #cfd0d2;
+}
+
+.skinType {
+  composes: skinType from '../Skin/style.scss';
+  color: #cfd0d2;
+}
+
+.skinWear {
+  composes: skinWear from '../Skin/style.scss';
+  color: #cfd0d2;
+}
+
+.skinCheckbox {
+  composes: skinCheckbox from '../Skin/style.scss';
+
+  background: #1c1e31;
+  color: #6d6d6d;
+}
+
+.skinBorder {
+  composes: skinBorder from '../Skin/style.scss';
+
+  border: 1px solid #6d6d6d;
+  border-top-color: #121322 !important;
+
+  &:after, &:before {
+    background-image: linear-gradient(#121322 50%, transparent);
+  }
+}
+
+.empty {
+  font-size: 1.1rem;
+  font-weight: 100;
+  color: #303142;
+}
+
+.contextMenu {
+  display: flex;
+  flex-direction: column;
+  border-radius: 5px;
+  z-index: 20;
+  color: #a29a9a;
+  font-size: 0.8rem;
+  border-radius: 5px;
+  max-width: 200px;
+  overflow: hidden;
+
+  > :global(.react-contextmenu-item), > :global(.react-contextmenu-item) > div {
+    display: flex;
+    align-items: center;
+
+    padding: 5px 10px;
+    cursor: pointer;
+    background: #fff;
+    transition: all 0.1s ease;
+
+    img {
+      width: 30px;
+      margin-right: 10px;
+    }
+
+    &:last-child {
+      border-radius: 0 0 5px 5px;
+    }
+
+    &:hover {
+      color: #5a5a5a;
+    }
+
+    &:active, &:focus {
+      outline: none;
+    }
+  }
+}
+
+.contextMenuHeader {
+  display: flex;
+  align-items: center;
+  background: #fff;
+  border-radius: 5px 5px 0 0;
+  color: #797979;
+
+  .contextMenuHeaderIcon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 0 0 5px 0;
+    background: #ececec;
+    width: 45px;
+    height: 20px;
+    padding: 10px;
+    margin-right: 10px;
+
+    > img {
+      height: 25px;
+    }
+  }
+
+  > div {
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+  }
+
+  > img {
+    height: 40px;
+  }
+}

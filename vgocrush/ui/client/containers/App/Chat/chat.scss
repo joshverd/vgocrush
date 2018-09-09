@@ -1,0 +1,15 @@
+
+$chatWidth: 300px;
+
+.container {
+  display: flex;
+  box-sizing: border-box;
+
+  min-width: $chatWidth;
+  width: $chatWidth;
+}
+
+.chat {
+  background: red;
+  flex: 1;
+}

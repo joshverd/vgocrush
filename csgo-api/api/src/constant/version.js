@@ -1,0 +1,3 @@
+/* THIS FILE WILL BE OVERWRITTEN DURING BUILD */
+
+export default 'DEV'

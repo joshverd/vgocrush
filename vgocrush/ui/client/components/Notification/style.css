@@ -1,0 +1,11 @@
+.notification {
+  background: #fb4275;
+  min-height: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  padding: 15px;
+  color: #fff;
+  border-radius: 4px;
+  margin-bottom: 10px;
+}

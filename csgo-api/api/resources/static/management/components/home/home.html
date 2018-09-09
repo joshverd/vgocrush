@@ -1,0 +1,65 @@
+
+<div class="uk-flex uk-flex-middle uk-padding uk-margin-bottom">
+  <div>
+    <h1 class="uk-text-bold uk-margin-remove"> <div ng-if="busy" uk-spinner></div> Stock</h1>
+    <span>{{ items.length }} total items</span>
+  </div>
+  <div class="uk-flex-1 uk-text-right">
+    <button class="uk-button uk-button-primary" ng-disabled="busy" ng-click="refresh(true)">Refresh</button>
+    <div class="uk-text-muted uk-margin-small-top">Last updated: {{ lastUpdated | date:'MM/dd/yyyy h:mm a'}}</div>
+  </div>
+</div>
+
+<div class="uk-margin-left uk-margin-right">
+  <div class="uk-card uk-card-default uk-card-body">
+    <div class="uk-card-badge uk-label uk-label-primary"><span uk-icon="icon: warning"></span> {{ lowItems.length }} items are low on stock</div>
+
+    <!-- <h2 ng-if="lowItems.length" class="uk-heading-bullet uk-text-danger">Items Low on Stock <span class="uk-label">{{ lowItems.length }}</span></h2> -->
+
+    <table ng-if="lowItems.length" class="uk-table uk-table-hover uk-table-striped">
+      <thead>
+        <tr>
+          <th width="20%"></th>
+          <th width="25%">Name</th>
+          <th>Price</th>
+          <th>Demand/Available</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr ng-repeat="item in lowItems | orderBy:'name'" class="uk-text-danger">
+          <td>
+            <!-- <button ng-click="stock(item)" ng-disabled="busy" class="uk-button uk-button-small uk-button-primary"><span uk-icon="icon: download"></span> Restock</button> -->
+            <button ng-click="showPlayers($event, item)" ng-disabled="busy" class="uk-button uk-button-small uk-button-primary"><span uk-icon="icon: users"></span> Players</button>
+          </td>
+          <td><img width="32" ng-src="{{ item.icon }}" /> {{ item.name }}</td>
+          <td>{{ item.basePrice | currency }}</td>
+          <td class="uk-text-bold">{{ item.demand | number }}/{{ item.botItemCount | number }} <span class="uk-text-muted">({{ item.botItemCount }} remaining)</span></td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h2 class="uk-heading-bullet uk-text-primary">Items Required <span class="uk-label">{{ items.length }}</span></h2>
+
+    <table class="uk-table uk-table-hover uk-table-striped">
+      <thead>
+        <tr>
+          <th width="20%"></th>
+          <th width="25%">Name</th>
+          <th>Price</th>
+          <th>Demand/Available</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr ng-repeat="item in items | orderBy:'name'">
+          <td>
+            <!-- <button ng-click="stock(item)" ng-disabled="busy" class="uk-button uk-button-small uk-button-primary"><span uk-icon="icon: download"></span> Restock</button> -->
+            <button ng-click="showPlayers($event, item)" ng-disabled="busy" class="uk-button uk-button-small uk-button-primary"><span uk-icon="icon: users"></span> Players</button>
+          </td>
+          <td><img width="32" ng-src="{{ item.icon }}" /> {{ item.name }}</td>
+          <td>{{ item.basePrice | currency }}</td>
+          <td class="uk-text-bold">{{ item.demand | number }}/{{ item.botItemCount | number }} <span class="uk-text-muted">({{ item.botItemCount }} remaining)</span></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

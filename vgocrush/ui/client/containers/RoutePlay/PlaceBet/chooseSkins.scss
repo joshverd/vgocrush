@@ -1,0 +1,19 @@
+
+.modalDialog {
+  max-width: 900px;
+}
+
+.modalHeader {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  flex: 1;
+  max-width: 200px;
+
+  text-align: center;
+
+  > button {
+    margin-bottom: 10px;
+  }
+}

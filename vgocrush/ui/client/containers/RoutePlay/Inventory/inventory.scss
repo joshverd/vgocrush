@@ -1,0 +1,22 @@
+
+.inventory {
+  position: relative;
+
+  display: flex;
+  flex-direction: column;
+
+  flex: 1;
+  margin-top: 25px;
+}
+
+.itemsContainer {
+  flex: 1;
+}
+
+.actions {
+  display: flex;
+
+  > button {
+    flex: 1;
+  }
+}

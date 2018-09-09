@@ -1,0 +1,90 @@
+{
+  "app": {
+    "rpcKey": "sknexchange"
+  },
+
+  "bots": [],
+  "administration": {
+    "httpPort": 5081
+  },
+  "blockedItems": [],
+  "database": {
+    "db": "sknexchange",
+    "host": "127.0.0.1",
+    "port": 28015,
+    "silent": true
+  },
+  "items": {},
+  "maxDepositItems": 50,
+  "minimumDeposit": 0.01,
+  "notifyServers": {},
+  "opskins": {
+    "apiKeys": [],
+    "slaves": [],
+    "trade": {
+      "baseUrl": "https://api-trade.opskins.com"
+    }
+  },
+  "prices": {
+    "discounts": [],
+    "markup": 1,
+    "markups": [
+      {
+        "markup": 1.20,
+        "minimum": 0
+      },
+      {
+        "markup": 1.12,
+        "minimum": 0.5
+      },
+      {
+        "markup": 1.10,
+        "minimum": 1
+      },
+      {
+        "markup": 1.10,
+        "minimum": 5
+      },
+      {
+        "markup": 1.10,
+        "minimum": 20
+      },
+      {
+        "markup": 1.10,
+        "minimum": 50
+      },
+      {
+        "markup": 1.10,
+        "minimum": 100
+      },
+      {
+        "markup": 1.10,
+        "minimum": 200
+      },
+      {
+        "markup": 1.10,
+        "minimum": 400
+      }
+    ],
+    "opMarkup": 1.3,
+    "steamanalyst": "",
+    "opskinsApiKey": ""
+  },
+  "redis": {
+    "host": "127.0.0.1",
+    "port": 6379
+  },
+  "security": {
+    "verifyTradeMinimum": 100000,
+    "verifyTrades": false
+  },
+  "servers": {},
+  "tokenMultiplier": 1000,
+  "twilio": false,
+  "whitelist": [
+    "127.0.0.1"
+  ],
+  "amqp": {
+    "url": "localhost:5672"
+  }
+}

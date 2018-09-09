@@ -1,0 +1,68 @@
+@font-face {
+    font-family: 'Circular';
+        src: url('./circularstd/circularstd-book-webfont.eot');
+        src: url('./circularstd/circularstd-book-webfont.eot?#iefix') format('embedded-opentype'),
+        url('./circularstd/circularstd-book-webfont.woff2') format('woff2'),
+        url('./circularstd/circularstd-book-webfont.woff') format('woff'),
+        url('./circularstd/circularstd-book-webfont.ttf') format('truetype');
+    font-weight: 400;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Circular';
+        src: url('./circularstd/circularstd-medium-webfont.eot');
+        src: url('./circularstd/circularstd-medium-webfont.eot?#iefix') format('embedded-opentype'),
+            url('./circularstd/circularstd-medium-webfont.woff2') format('woff2'),
+            url('./circularstd/circularstd-medium-webfont.woff') format('woff'),
+            url('./circularstd/circularstd-medium-webfont.ttf') format('truetype');
+  font-weight: 500;
+  font-style: normal;
+}
+
+@font-face {
+    font-family: 'Circular';
+        src: url('./circularstd/circularstd-bold-webfont.eot');
+        src: url('./circularstd/circularstd-bold-webfont.eot?#iefix') format('embedded-opentype'),
+            url('./circularstd/circularstd-bold-webfont.woff2') format('woff2'),
+            url('./circularstd/circularstd-bold-webfont.woff') format('woff'),
+            url('./circularstd/circularstd-bold-webfont.ttf') format('truetype');
+    font-weight: 700;
+    font-style: normal;
+}
+
+@font-face {
+  font-family: 'gordita';
+  src: url('https://fonts.luna1.co/gordita/hinted/hinted-Gordita-Regular.eot');
+  src: url('https://fonts.luna1.co/gordita/hinted/hinted-Gordita-Regular.eot?#iefix') format('embedded-opentype'),
+      url('https://fonts.luna1.co/gordita/hinted/hinted-Gordita-Regular.woff2') format('woff2'),
+      url('https://fonts.luna1.co/gordita/hinted/hinted-Gordita-Regular.woff') format('woff'),
+      url('https://fonts.luna1.co/gordita/hinted/hinted-Gordita-Regular.ttf') format('truetype'),
+      url('https://fonts.luna1.co/gordita/hinted/hinted-Gordita-Regular.svg#Gordita-Regular') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'gordita';
+  src: url('https://fonts.luna1.co/gordita/hinted/hinted-Gordita-Light.eot');
+  src: url('https://fonts.luna1.co/gordita/hinted/hinted-Gordita-Light.eot?#iefix') format('embedded-opentype'),
+      url('https://fonts.luna1.co/gordita/hinted/hinted-Gordita-Light.woff2') format('woff2'),
+      url('https://fonts.luna1.co/gordita/hinted/hinted-Gordita-Light.woff') format('woff'),
+      url('https://fonts.luna1.co/gordita/hinted/hinted-Gordita-Light.ttf') format('truetype'),
+      url('https://fonts.luna1.co/gordita/hinted/hinted-Gordita-Light.svg#Gordita-Light') format('svg');
+  font-weight: 300;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'gordita';
+  src: url('https://fonts.luna1.co/gordita/hinted/hinted-Gordita-Medium.eot');
+  src: url('https://fonts.luna1.co/gordita/hinted/hinted-Gordita-Medium.eot?#iefix') format('embedded-opentype'),
+      url('https://fonts.luna1.co/gordita/hinted/hinted-Gordita-Medium.woff2') format('woff2'),
+      url('https://fonts.luna1.co/gordita/hinted/hinted-Gordita-Medium.woff') format('woff'),
+      url('https://fonts.luna1.co/gordita/hinted/hinted-Gordita-Medium.ttf') format('truetype'),
+      url('https://fonts.luna1.co/gordita/hinted/hinted-Gordita-Medium.svg#Gordita-Medium') format('svg');
+  font-weight: 500;
+  font-style: normal;
+}

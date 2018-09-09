@@ -1,0 +1,81 @@
+.statsContainer {
+  margin-top: 45px;
+  margin-bottom: 50px;
+}
+
+.container {
+  position: relative;
+
+  display: flex;
+  flex-direction: column;
+
+  padding: 45px;
+  box-sizing: border-box;
+}
+
+.spinner {
+  position: absolute 0;
+  display: flex;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background: rgba(255, 255, 255, 0.9);
+  z-index: 1;
+}
+
+.details {
+  display: flex;
+}
+
+.detail {
+  min-width: 400px;
+
+  border: 1px solid #e8e8e8;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.03);
+
+  border-radius: 5px;
+  margin-bottom: 35px;
+  box-sizing: border-box;
+  padding: 25px;
+}
+
+.detailHeader {
+  margin: 0;
+  border-bottom: 2px solid #f4f4f4;
+  padding-bottom: 25px;
+}
+
+.detailActions {
+  margin: 0;
+  border-top: 2px solid #f4f4f4;
+  padding-top: 25px;
+
+  text-align: center;
+}
+
+.detailBody {
+  margin: 25px 0;
+}
+
+.detailHeader h1 {
+  font-weight: 400;
+  margin: 0;
+}
+
+.detailHeader > div {
+  color: #999;
+}
+
+.estimatedValue {
+  text-align: center;
+  font-size: 2rem;
+  color: #009588;
+}
+
+.itemCount {
+  font-size: 1.2rem;
+  text-align: center;
+  margin-top: 5px;
+}

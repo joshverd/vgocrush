@@ -1,0 +1,106 @@
+
+.prize {
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 240px;
+  height: 150px;
+  margin: 5px;
+
+  cursor: pointer;
+
+  background: #f9f9f9;
+  border-radius: 4px;
+  
+  // &:after {
+  //   content: ' ';
+  //   background: url('../assets/trees.svg');
+  //   position: absolute 0;
+  //   bottom: -7px;
+  //   opacity: 0.03;
+  // }
+
+  > img {
+    position: relative;
+    z-index: 5;
+    max-width: 85px;
+    width: 100%;
+  }
+
+  &:hover {
+    // background-color: #c62828;
+
+    // .backgroundDay {
+    //   transform: scale(1.30) rotate(15deg);
+    //   letter-spacing: 3px;
+    //   opacity: 0.25;
+    // }
+  }
+}
+
+.green {
+  &:hover {
+    // background-color: #4CAF50;
+  }
+}
+
+.day {
+  position: absolute;
+  bottom: 28px;
+  left: calc(50% - 13px);
+  width: 30px;
+  height: 30px;
+  background: #c72929;
+  color: #fff;
+  font-weight: bold;
+  border-radius: 10px;
+  line-height: 30px;
+  text-align: center;
+  font-size: 1rem;
+  z-index: 6;
+}
+
+.backgroundDay {
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12rem;
+  font-weight: 900;
+  color: #1e1d2f;
+
+  // transition: all 0.1s ease;
+}
+
+.past {
+  opacity: 0.4;
+  pointer-events: none;
+  background: none;
+}
+
+.jackpot {
+  // background: none;
+
+  //flex: 1;
+  //height: 100%;
+  //max-width: 200px;
+
+  &:hover {
+    background-color: #fcd449 !important;
+  }
+
+  // .backgroundDay {
+    // display: none;
+  // }
+
+  // > img {
+    // max-width: 200px;
+  // }
+}

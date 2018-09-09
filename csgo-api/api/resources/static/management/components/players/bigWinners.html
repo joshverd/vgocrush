@@ -1,0 +1,22 @@
+<div class="uk-container uk-margin-large-top uk-container-center uk-overflow-scroll">
+  <h1>Biggest Wins</h1>
+  <table class="uk-table">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Item</th>
+        <th>Case</th>
+        <th>Price</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr ng-if="busy"><td colspan="4" class="uk-text-center"><div uk-spinner></div></td><tr>
+      <tr ng-repeat="open in opens | orderBy:'-prize'">
+        <td><a ui-sref="player({ id: open.player.id })"><img ng-src="{{ open.player.avatar }}" width="32" /> {{ open.player.name }}</a></td>
+        <td><img width="32" ng-src="https://{{ open.item.icon_url }}" /> {{ open.item.name}}</td>
+        <td><a ui-sref="case({ id: open.caseId })">{{ open.case.name }}</a></td>
+        <td>{{ open.prize | currency }}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>

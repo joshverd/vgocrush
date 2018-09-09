@@ -1,0 +1,11 @@
+{
+  "database": {
+    "host": "rethinkdb"
+  },
+  "redis": {
+    "host": "redis"
+  },
+  "amqp": {
+    "url": "rabbitmq"
+  }
+}

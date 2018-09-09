@@ -1,0 +1,49 @@
+
+body {
+  -webkit-font-smoothing: antialiased;
+}
+
+.wrapper {
+  position: absolute 0;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+
+  font-family: 'Montserrat', sans-serif;
+  color: #676767;
+}
+
+.contentContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: 1;
+}
+
+.loginContainer {
+  display: flex;
+  flex-direction: column;
+
+  max-width: 280px;
+  width: 100%;
+}
+
+.spaceBottom {
+  margin-bottom: 15px;
+}
+
+.logoWrapper {
+  margin: 0 auto;
+  margin-bottom: 35px;
+  max-width: 150px;
+}
+
+.logo {
+  width: 150px;
+  height: 130px;
+}
+
+.loginForm {
+  display: flex;
+  flex-direction: column;
+}

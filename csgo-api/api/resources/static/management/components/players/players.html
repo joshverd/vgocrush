@@ -1,0 +1,77 @@
+<div class="uk-margin-top uk-padding">
+  <div class="uk-container uk-container-center uk-margin-bottom">
+    <form class="uk-form-stacked uk-width-1-1">
+      <div class="uk-margin">
+        <label class="uk-form-label uk-text-bold">SteamID64:</label>
+        <div class="uk-form-controls">
+          <input ng-disabled="busy" class="uk-input" type="text" placeholder="Enter a steamid" ng-model="steamId64" />
+        </div>
+      </div>
+      <div class="uk-margin uk-text-right">
+        <button class="uk-button uk-button-primary" ng-click="viewProfile(steamId64)">View Profile</button>
+      </div>
+    </form>
+  </div>
+
+  <div class="uk-flex uk-margin-large-top uk-margin-large-bottom">
+    <div class="uk-flex-1 uk-text-center">
+      <h3 class="uk-margin-remove">{{ statistics.totalDeposited | currency }}</h3>
+      <span class="uk-text-muted">Total G2A Deposited</span>
+    </div>
+    <div class="uk-flex-1 uk-text-center">
+      <h3 class="uk-margin-remove">{{ statistics.totalSkinsDeposited | currency }}</h3>
+      <span class="uk-text-muted">Total Skins Deposited</span>
+    </div>
+    <div class="uk-flex-1 uk-text-center">
+      <h3 class="uk-margin-remove">{{ statistics.totalWithdrawn | currency }}</h3>
+      <span class="uk-text-muted">Total Withdrawn</span>
+    </div>
+  </div>
+
+  <div ng-if="locals.admin" class="uk-grid">
+    <div class="uk-width-1-2">
+      <h3 class="uk-heading-bullet">Recent Large Deposits</h3>
+      <table class="uk-table uk-table-striped">
+        <thead>
+          <tr>
+            <th></th>
+            <th>Amount</th>
+            <th>SteamID</th>
+            <th>User</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr ng-repeat="order in largeDeposits | orderBy: '-createdAt'">
+            <th>{{ order.createdAt | date }}
+            <td>{{ order.amount | currency }}</td>
+            <td class="uk-text-success">{{ order.amount | currency }}</td>
+            <td>{{ order.playerId }}</td>
+            <td><a ui-sref="player({ id: order.playerId })"><img ng-src="{{ order.avatar }}" /> {{ order.displayName }}</a></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="uk-width-1-2">
+      <h3 class="uk-heading-bullet">Recent Large Withdraws</h3>
+      <table class="uk-table uk-table-striped">
+        <thead>
+          <tr>
+            <th></th>
+            <th>Amount</th>
+            <th>SteamID</th>
+            <th>User</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr ng-repeat="order in largeWithdraws | orderBy: '-createdAt'">
+            <th>{{ order.createdAt | date }}
+            <td>{{ order.amount | currency }}</td>
+            <td class="uk-text-success">{{ order.amount | currency }}</td>
+            <td>{{ order.playerId }}</td>
+            <td><a ui-sref="player({ id: order.playerId })"><img ng-src="{{ order.avatar }}" /> {{ order.displayName }}</a></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

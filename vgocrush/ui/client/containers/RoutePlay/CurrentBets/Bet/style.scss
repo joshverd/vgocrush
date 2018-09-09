@@ -1,0 +1,275 @@
+
+.container {
+  display: flex;
+  align-items: center;
+
+  min-height: 100px;
+  height: 100px;
+  padding: 10px 15px 10px 0;
+
+  box-sizing: border-box;
+  margin-bottom: 5px;
+
+  font-size: 1.2rem;
+  border: 1px solid #0a0c19;
+  background: #201f2d;
+  border-radius: 5px;
+  color: #e4e4e4;
+  transform: translateY(5px);
+  opacity: 0.1;
+  animation: betEnter 0.5s ease forwards;
+  border-left: 5px solid #3a394a;
+}
+
+.bonusRound {
+  // .player > div {
+  //   color: #e4b23c !important;
+  // }
+}
+
+@keyframes betEnter {
+  0% {
+    opacity: 0.1;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+.cashedOut {
+  background-color: #212035;
+  opacity: 1;
+}
+
+.lost {
+  color: #f72f6b !important;
+  opacity: 0.4;
+  animation: none;
+}
+
+.player {
+  position: relative;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+
+  height: 100%;
+  min-width: 60px;
+  max-width: 130px;
+  width: 100%;
+  margin: 0 10px;
+}
+
+.player > div {
+  background: #1c1b27;
+  font-size: 1rem;
+  font-weight: 900;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  height: 30px;
+  min-height: 30px;
+
+  width: 100%;
+  text-align: center;
+  border-radius: 5px;
+  margin-top: 5px;
+}
+
+.player > div > span {
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  padding: 0 10px;
+  box-sizing: border-box;
+}
+
+.cashedOut .player > div {
+  background-color: rgba(25, 24, 39, 0.4);
+}
+
+.player > img {
+  height: 40px;
+  border-radius: 5px;
+}
+
+.upgrade {
+  display: flex;
+  align-items: center;
+
+  flex: 1;
+  overflow: hidden;
+}
+
+// .lost .player, .lost .upgrade {
+//   opacity: 0.4;
+// }
+
+.items {
+  position: relative;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+
+  transition: 0.3s opacity ease;
+}
+
+.upgradedItems {
+  composes: items;
+  overflow: hidden;
+  width: 100%;
+  max-width: 0;
+  opacity: 0;
+
+  animation: upgradedItemsEnter 0.5s cubic-bezier(0, 0.9, 0.51, 0.99) forwards;
+}
+
+@keyframes upgradedItemsEnter {
+  100% {
+    opacity: 1;
+    max-width: 200px;
+  }
+}
+
+.betItems {
+  composes: items;
+  flex: 1;
+}
+
+.cashedOut .betItems {
+  opacity: 0.4;
+}
+
+.items > img {
+  height: 75px;
+  margin-left: 5px;
+  opacity: 0.6;
+}
+
+.subItems {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  opacity: 0.5;
+  margin-left: 10px;
+}
+
+.subItems > img {
+  height: 35px;
+}
+
+.itemsPrice {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  height: 30px;
+  line-height: 30px;
+  background: rgba(0, 0, 0, 0.3);
+  border-radius: 5px;
+  font-size: 0.95rem;
+  font-weight: bold;
+  text-align: center;
+  z-index: 2;
+
+  min-width: 90px;
+  width: 100%;
+  max-width: 150px;
+}
+
+.itemsPrice > img {
+  margin-left: 5px;
+}
+
+.upgradeDivider {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 150px;
+}
+
+.upgradeDivider > img {
+  height: 60px;
+  animation: upgradeRotate 2s linear infinite;
+}
+
+.lost .upgradeDivider > img {
+  height: 15px;
+  animation: none;
+}
+
+@keyframes upgradeRotate {
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.upgradeWin {
+  position: relative;
+  width: 80px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.upgradeArrow {
+  height: 100%;
+  transform: translateY(100px);
+  opacity: 0;
+
+  animation: upgradeArrowEnter 1.2s cubic-bezier(0.07, 0.76, 0.25, 1) forwards;
+}
+
+.upgradeCashout {
+  position: absolute;
+  top: calc(50% - 15px);
+  right: 0;
+  left: 0;
+  height: 30px;
+  font-size: 2rem;
+  /*background: rgba(0, 0, 0, 0.38);*/
+  text-align: center;
+  line-height: 30px;
+  border-radius: 5px;
+  z-index: 5;
+}
+
+/*.cashedOut .upgradeCashout {
+  color: #cddc39;
+}*/
+
+@keyframes upgradeArrowEnter {
+  100% {
+    transform: translateY(0px);
+    opacity: 0.2;
+  }
+}
+
+.bonusItems {
+  composes: upgradedItems;
+
+  justify-content: flex-end;
+  width: 100%;
+  max-width: 0px;
+  margin-left: 10px;
+  opacity: 0;
+
+  animation: bonusItemsEnter 0.5s cubic-bezier(0, 0.9, 0.51, 0.99) forwards;
+
+  > img {
+    height: 50px;
+    opacity: 1 !important
+  }
+}
+
+@keyframes bonusItemsEnter {
+  100% {
+    opacity: 1;
+    max-width: 65px;
+  }
+}

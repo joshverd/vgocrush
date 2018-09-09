@@ -1,0 +1,47 @@
+@mixin transform($info) {
+  transform: $info;
+  -webkit-transform: $info;
+  -moz-transform: $info;
+  -ms-transform: $info;
+}
+
+@mixin gradient($type, $info) {
+  background: #{$type}-gradient($info);
+  background: -webkit-#{$type}-gradient($info);
+  background: -moz-#{$type}-gradient($info);
+  background: -ms-#{$type}-gradient($info);
+}
+
+@mixin browsers($info) {
+  animation: $info;
+  -webkit-animation: $info;
+  -moz-animation: $info;
+  -ms-animation: $info;
+  -o-animation: $info;
+}
+
+@mixin blur($info) {
+  filter: blur($info);
+  -webkit-filter: blur($info);
+  -moz-filter: blur($info);
+  -ms-filter: blur($info);
+  -o-filter: blur($info);
+}
+
+@mixin animation($name) {
+  @keyframes #{$name} {
+    @content;
+  }
+
+  @-webkit-keyframes #{$name} {
+    @content;
+  }
+
+  @-moz-keyframes #{$name} {
+    @content;
+  }
+
+  @-ms-keyframes #{$name} {
+    @content;
+  }
+}

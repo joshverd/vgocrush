@@ -1,0 +1,103 @@
+
+<div class="uk-margin-top uk-padding">
+  <div class="uk-card uk-card-default uk-width-1-1">
+
+    <div class="uk-card-body">
+
+      <ul id="tab" uk-tab>
+        <li><a href="#">Promotions</a></li>
+        <li><a href="#">Create Promo</a></li>
+      </ul>
+
+      <div id="switcher" class="uk-switcher uk-margin-top uk-margin-large-bottom">
+
+        <div>
+          <table class="uk-table uk-table-hover uk-table-striped">
+            <thead>
+              <tr>
+                <th>Code</th>
+                <th>Amount</th>
+                <th>Max Usages</th>
+                <th>Expiration</th>
+                <th>Lock</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr ng-if="busy">
+                <td class="uk-text-center" colspan="5"><div uk-spinner></div></div>
+              </tr>
+
+              <tr ng-if="!busy && promotions.length === 0">
+                <td class="uk-text-center" colspan="5">Nothing to display</div>
+              </tr>
+
+              <tr ng-repeat="promo in promotions">
+                <td>{{ promo.code }}</td>
+                <td>{{ promo.reward | currency }}</td>
+                <td>{{ promo.referrals || '0' }} / {{ promo.maxUsages || '-' }}</td>
+                <td>{{ promo.expiration || '-' }}</td>
+                <td>{{ promo.playerId || '-' }}</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div>
+
+<!--
+Amount (Mandatory), Max Uses (Optional), Custom Code Name (Optional - otherwise creates a shortcode), Expiration Time (Optional), UID Lock (Optional - Ensures that only one steamID can claim the code)
+-->
+
+          <form class="uk-form-stacked uk-width-1-1">
+            <div class="uk-margin">
+              <label class="uk-form-label uk-text-bold">Name:</label>
+              <div class="uk-form-controls">
+                <input ng-disabled="busy" class="uk-input" type="text" placeholder="Code name" ng-model="details.code" />
+                <button ng-click="generateRandom()" class="uk-button uk-button-secondary uk-margin-small-top uk-button-small">Generate Name</button>
+              </div>
+            </div>
+
+            <div class="uk-margin">
+              <label class="uk-form-label uk-text-bold">Amount (USD):</label>
+              <div class="uk-form-controls">
+                <input ng-disabled="busy" class="uk-input" type="number" placeholder="Amount" ng-model="details.amount" />
+              </div>
+            </div>
+
+            <div class="uk-margin">
+              <label class="uk-form-label uk-text-bold">Max Usages (Blank if none):</label>
+              <div class="uk-form-controls">
+                <input ng-disabled="busy" class="uk-input" type="number" placeholder="Max Usages" ng-model="details.maxUsages" />
+              </div>
+            </div>
+
+            <div class="uk-margin">
+              <label class="uk-form-label uk-text-bold">Expiration (Blank if none):</label>
+              <div class="uk-form-controls">
+                <input ng-disabled="busy" class="uk-input" type="text" placeholder="MM/DD/YYYY" ng-model="details.expiration" />
+              </div>
+              <div class="uk-text-muted uk-text-small uk-margin-small-top">Day the code will no longer be valid</div>
+            </div>
+
+            <div class="uk-margin">
+              <label class="uk-form-label uk-text-bold">UID Lock (Blank if none):</label>
+              <div class="uk-form-controls">
+                <input ng-disabled="busy" class="uk-input" type="text" placeholder="XXXXXXXXXX" ng-model="details.lock" />
+                <div class="uk-text-muted uk-text-small uk-margin-small-top">SteamID of a user this code will only be valid for</div>
+              </div>
+            </div>
+
+            <div class="uk-margin-top uk-text-center">
+              <button ng-disabled="busy" ng-click="submit()" class="uk-button uk-button-primary" type="submit">Create Promo</button>
+            </div>
+          </form>
+        </div>
+
+      </div>
+
+    </div>
+    <div class="uk-card-footer">
+
+    </div>
+  </div>
+</div>

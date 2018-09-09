@@ -1,0 +1,296 @@
+
+.container {
+  position: absolute 0;
+  z-index: 10;
+  overflow: hidden;
+  border-radius: 5px 5px;
+}
+
+.paint {
+  position: absolute;
+  bottom: 0;
+  left: calc(50%);
+
+  background-color: #4baf50;
+  width: 50%;
+  height: 50%;
+
+  z-index: 1;
+
+  opacity: 0;
+  transform: scale(0);
+  border-radius: 100%;
+
+  animation: paint 0.8s ease forwards;
+  pointer-events: none;
+}
+
+.paintOverlay {
+  position: absolute 0;
+  background-color: #fff;
+  // background-image: url('../assets/pattern.png');
+  z-index: 2;
+  opacity: 0;
+  animation: fadeIn 1s ease forwards;
+  animation-delay: 0.4s;
+}
+
+.close {
+  position: absolute;
+  top: 0;
+  right: 0;
+  z-index: 10;
+  background-color: rgba(0, 0, 0, 0.1);
+  color: #fff;
+  width: 50px;
+  height: 50px;
+  border-radius: 0 0 0 7px;
+  text-align: center;
+  line-height: 50px;
+
+  cursor: pointer;
+
+  &:hover {
+    background-color: rgba(0, 0, 0, 0.15);
+  }
+}
+
+.contentContainer {
+  position: absolute 0;
+  overflow: hidden;
+  z-index: 5;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  // justify-content: center;
+  //
+
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  // justify-content: center;
+
+  flex: 1;
+
+  opacity: 0;
+  transform: translateY(20px);
+  animation: contentIn 0.5s ease forwards;
+  animation-delay: 0.6s;
+
+  > img {
+    display: block;
+
+    flex: 1;
+    max-height: 200px;
+    animation: float infinite ease-in-out 1.5s;
+  }
+}
+
+.giftContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  flex: 1;
+
+  > img {
+    max-height: 230px;
+    margin-bottom: 15px;
+  }
+}
+
+.payoutContent {
+  composes: content;
+
+  max-width: 75%;
+  width: 100%;
+}
+
+@keyframes contentIn {
+  to {
+    opacity: 1;
+    transform: translateY(0px);
+  }
+}
+
+.claimButton {
+  border-radius: 5px;
+  background: #121423;
+  font-weight: 900;
+  font-size: 1.5rem;
+  min-height: 50px;
+}
+
+.header {
+  width: 75%;
+  height: 50px;
+  border-radius: 5px;
+  background-color: #b1c3d8;
+  line-height: 50px;
+  text-align: center;
+  font-size: 1.5em;
+  font-weight: 900;
+  color: #fff;
+
+  &:before, &:after {
+    content: '';
+    display: block;
+    position: absolute;
+    width: 25%;
+    height: 0;
+    top: 10px;
+    border-top: 18px solid #9bafc5;
+    border-bottom: 18px solid #9bafc5;
+    z-index: -1;
+    transition: all 0.2s ease;
+  }
+
+  &:before {
+    left:0px;
+    border-left: 12px solid rgba(255, 255, 255, 0);
+  }
+
+  &:after {
+    right:0px;
+    border-right: 12px solid rgba(255, 255, 255, 0);
+  }
+}
+
+.timer {
+  background: #9bafc5;
+  padding: 5px 10px;
+  border-radius: 0 0 5px 5px;
+  font-weight: 900;
+  color: #fff;
+}
+
+@keyframes float {
+  0% {
+    transform: translateY(6px);
+  }
+  50% {
+    transform: translateY(0px);
+  }
+  100% {
+    transform: translateY(6px);
+  }
+}
+
+@keyframes fadeIn {
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes paint {
+  from {
+    opacity: 0;
+    transform: scale(0);
+  }
+
+  to {
+    opacity: 1;
+    transform: scale(6);
+  }
+}
+
+.currentJackpot {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: #fff;
+}
+
+.currentJackpotValue {
+  font-weight: 900;
+  font-size: 4rem;
+}
+
+.currentJackpotText {
+  font-weight: bold;
+}
+
+.payouts {
+  display: flex;
+  width: 100%;
+  // color: #fff;
+  font-weight: bold;
+}
+
+.payout {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex: 1;
+
+  > img {
+    width: 75px;
+    margin-bottom: 10px;
+  }
+}
+
+.payoutValue {
+  font-size: 2rem;
+  font-weight: 900;
+}
+
+.payoutInfo {
+  // color: #307132;
+  // font-weight: bold;
+  font-size: 1.1rem;
+  margin-top: 25px;
+  padding: 10px;
+  border-radius: 4px;
+  text-align: center;
+}
+
+.tickets {
+  display: flex;
+  flex-wrap: wrap;
+
+  margin-top: 30px;
+  overflow: auto;
+
+  &::-webkit-scrollbar {
+    width: 0;
+  }
+}
+
+.ticket {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  color: #fff;
+  margin: 0 15px 30px 15px;
+  font-size: 0.9rem;
+
+  > img {
+    max-height: 80px;
+    margin-bottom: 10px;
+  }
+
+  > div {
+    background: rgba(28, 29, 47, 0.3);
+    padding: 5px 15px;
+    border-radius: 10px;
+  }
+}
+
+.winner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  > img {
+    width: 35px;
+    height: 35px;
+  }
+}

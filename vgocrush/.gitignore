@@ -1,0 +1,12 @@
+.DS_Store
+
+node_modules
+.module-cache
+*.log*
+npm-debug.log
+*.zip
+*.sw*
+
+ui/static
+csgo-api
+.idea

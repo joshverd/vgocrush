@@ -1,0 +1,42 @@
+
+.container {
+  position: relative;
+
+  display: flex;
+  align-items: center;
+
+  background-color: #ff6b6b;
+  border-radius: 5px;
+  height: 45px;
+  padding: 0 25px;
+  box-sizing: border-box;
+  font-weight: 900;
+  font-size: 1rem;
+  color: #fff;
+  font-family: proxima-nova, sans-serif;
+
+  // &:after {
+  //   position: absolute;
+  //   top: -30px;
+  //   right: 0;
+  //   left: -4px;
+  //   content: ' ';
+  //   height: 80px;
+  //   background: url('../assets/snow.svg') no-repeat;
+  // }
+  //
+  // &:before {
+  //   position: absolute;
+  //   top: -5px;
+  //   right: -4px;
+  //   bottom: 0;
+  //   width: 56px;
+  //   content: ' ';
+  //   background: url('../assets/snow4.svg') no-repeat;
+  // }
+}
+
+.prizeValue {
+  flex: 1;
+  text-align: right;
+}

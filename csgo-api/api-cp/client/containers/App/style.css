@@ -1,0 +1,180 @@
+
+body {
+  -webkit-font-smoothing: antialiased;
+}
+
+/*a, a:visited {
+  color: #149588;
+  text-decoration: none;
+}*/
+
+.wrapper {
+  position: absolute 0;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+
+  font-family: 'Montserrat', sans-serif;
+  color: #676767;
+}
+
+.contentContainer {
+  display: flex;
+  flex: 1;
+}
+
+.leftNav {
+  display: flex;
+  flex-direction: column;
+
+  width: 200px;
+  min-width: 200px;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+
+  min-height: 125px;
+  background: #009688;
+  border: 1px solid #148a7f;
+  border-top: 0;
+  border-left: 0;
+  border-radius: 0 0 5px 0;
+
+  font-weight: 600;
+  font-size: 3rem;
+  color: #fff;
+
+  box-shadow: 0px 3px 3px rgba(0, 0, 0, 0.25);
+}
+
+.brand > div {
+  font-size: 1rem;
+  font-weight: 400;
+  color: #ffffff;
+}
+
+.nav {
+  flex: 1;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+
+  flex: 1;
+  box-sizing: border-box;
+  overflow: hidden;
+  overflow-y: scroll;
+}
+
+.content::-webkit-scrollbar {
+  display: none;
+}
+
+/* Tables */
+
+* + table {
+  margin-top: 20px;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+  width: 100%;
+
+  margin-bottom: 20px;
+}
+
+table thead th {
+  padding: 16px 12px;
+  text-align: left;
+  vertical-align: bottom;
+  font-size: 0.85rem;
+  font-weight: 400;
+  color: #afafaf;
+}
+
+table tbody tr:nth-child(odd) {
+  background: #f8f8f8;
+}
+
+table td {
+  padding: 16px 12px;
+  vertical-align: middle;
+}
+
+table a, table a:visited {
+  color: #009588;
+  text-decoration: none;
+}
+
+/* MS Command Bar */
+/*:global(.ms-CommandBar) {
+  background: #009688;
+  border-bottom: 1px solid #148a7f;
+  box-shadow: 1px 3px 3px rgba(0, 0, 0, 0.25);
+}
+
+:global(.ms-CommandBarItem, .ms-CommandBarItem-link:not([disabled])) {
+  color: #fff;
+}
+
+:global(.ms-CommandBarItem:hover, .ms-CommandBarItem-link:hover:not([disabled])) {
+  background: #148a7f;
+  color: #fff;
+}
+
+:global(.ms-CommandBarItem-link.is-expanded .ms-Icon) {
+  color: #fff;
+}
+
+:global(.ms-CommandBarItem-link.is-expanded) {
+  background: #148a7f;
+  color: #fff;
+}
+
+:global(.ms-CommandBarItem-link .ms-Icon) {
+  color: #fff;
+}
+
+:global(.ms-CommandBarItem-link:hover:not([disabled]) .ms-Icon) {
+  color: #fff;
+}
+
+:global(.ms-Nav-groupContent ul li) {
+  border-right: 1px solid #f5f5f5;
+}
+
+:global(.ms-Nav-compositeLink a) {
+  color: #b1b1b1;
+}
+
+:global(.ms-Nav-compositeLink.is-selected a) {
+  color: #149588;
+}*/
+
+:global(.ms-Nav-groupContent ul li) {
+  border-right: 1px solid #ecebeb;
+}
+
+:global(.ms-TagItem) {
+  border-radius: 3px;
+  background: #149588 !important;
+  color: #fff !important;
+}
+
+:global(.ms-TagItem-close) {
+  color: #fff !important;
+}
+
+:global(.ms-Suggestions-item.is-suggested) {
+  background: #f8f8f8 !important;
+}
+
+:global(.ms-Suggestions-item:hover) {
+  background: #f5f5f5 !important;
+}

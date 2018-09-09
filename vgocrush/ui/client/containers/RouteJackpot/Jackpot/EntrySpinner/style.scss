@@ -1,0 +1,141 @@
+
+.container {
+  margin-bottom: 15px;
+}
+
+.spinnerContainer {
+  position: relative;
+  height: 110px;
+}
+
+.spinner {
+  position: absolute 0;
+  background: #1d1e2e;
+  z-index: 10;
+  overflow: hidden;
+  text-align: left;
+}
+
+.spinner:after {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  top: 0;
+  content: "";
+  background: linear-gradient(90deg, rgba(0, 0, 0, 0.01), #0b0c1b);
+  height: 100%;
+  width: 40%;
+  z-index: 3;
+  pointer-events: none;
+}
+
+.spinner:before {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  top: 0;
+  content: "";
+  background: linear-gradient(90deg, #0b0c1b,rgba(0, 0, 0, 0.01));
+  height: 100%;
+  width: 40%;
+  z-index: 3;
+  pointer-events: none;
+}
+
+.spinner img {
+  display: inline-block;
+  width: 100px;
+  border-radius: 7px;
+  margin: 0;
+  box-shadow: none;
+  margin-right: 6px;
+  margin-top: 4px;
+  box-shadow: 0px 0px 4px #000;
+  box-shadow: 1px 4px 10px #000;
+  z-index: 10;
+}
+
+.spinnerLine {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: calc(50% - 2px);
+  width: 4px;
+  background: #1d1e2e;
+  box-shadow: 0px 0px 15px #272a2d;
+  z-index: 11;
+}
+
+.potSize {
+  position: absolute;
+  right: 0px;
+  top: 0;
+  z-index: 11;
+  background: #1d1e2e;
+  color: #ffffff;
+  font-weight: bold;
+  letter-spacing: 2px;
+  border-radius: 0 0 0 3px;
+  font-size: 11px;
+  padding: 2px 13px;
+}
+
+.chance {
+  composes: potSize;
+  left: 0px;
+  right: initial;
+  border-radius: 0px 0px 3px;
+}
+
+.winner {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  position: absolute 0;
+  background: rgba(11, 12, 27, 0.8);
+  z-index: 15;
+  opacity: 0;
+  text-align: center;
+  animation: winnerEnter ease 1s forwards;
+}
+
+@keyframes winnerEnter {
+	100% { opacity: 1; }
+}
+
+.winner h3 {
+  text-align: center;
+  // line-height: 109px;
+  // height: 76px;
+  overflow: hidden;
+  margin: 0;
+  color: #fff;
+  font-weight: 700;
+  display: inline-block;
+  margin-right: 5px;
+}
+
+.winnner h3:first-child {
+  max-width: 200px;
+}
+
+.winner img {
+  width: 60px;
+  margin: 0;
+  // margin-right: 10px;
+  // margin-bottom: 32px;
+  box-shadow: none;
+  border: 1px solid #27292d;
+  overflow: hidden;
+  margin-right: 5px;
+  border-radius: 50%;
+}
+
+.winnerName {
+  word-break: break-all;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 200px;
+}

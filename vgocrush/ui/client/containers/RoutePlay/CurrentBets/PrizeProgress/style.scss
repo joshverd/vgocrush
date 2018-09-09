@@ -1,0 +1,28 @@
+
+.prizeProgress {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 60px;
+  margin-right: 15px;
+  margin-bottom: 10px;
+}
+
+.prize {
+  background: #0f0f1b;
+  border-radius: 5px;
+  padding: 5px;
+  box-sizing: border-box;
+
+  > img {
+    width: 100%;
+    opacity: 0.3;
+  }
+}
+
+.progressBar {
+  flex: 1;
+  background: #0f0f1a;
+  width: 15px;
+  border-radius: 0 0 5px 5px;
+}

@@ -1,0 +1,55 @@
+
+.container {
+  display: flex;
+  justify-content: center;
+}
+
+.underAge {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+
+  button {
+    margin-top: 15px;
+  }
+
+  p {
+    font-size: 1.6rem !important;
+  }
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  margin-top: 45px;
+  max-width: 400px;
+
+  .underAge & {
+    margin: 0;
+    max-width: 50%;
+    font-size: 1.8rem;
+  }
+
+  > select {
+    background: #fff;
+    border: 1px solid #b7bfc6;
+    border-radius: 0;
+    height: 50px;
+    font-size: 1.2rem;
+    font-weight: 100;
+    color: #787b7d;
+    margin-bottom: 15px;
+  }
+
+  > p {
+    font-size: 0.8rem;
+    margin-top: 15px;
+  }
+}
+
+.logo {
+  height: 100px;
+  margin-bottom: 45px;
+}

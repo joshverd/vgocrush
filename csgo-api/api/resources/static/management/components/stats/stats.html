@@ -1,0 +1,98 @@
+<div class="uk-flex uk-padding-small uk-margin-bottom">
+  <div>
+    <label class="uk-text-bold uk-margin-right">Timespan:</label>
+    <select class="uk-input" ng-disabled="busy && !autoRefreshing" ng-model="timespan" ng-change="refresh()">
+      <option value="daily">Daily</option>
+      <option value="weekly">Weekly</option>
+      <option value="monthly">Monthly</option>
+      <option value="lifetime">Lifetime</option>
+    </select>
+  </div>
+  <div class="uk-flex-1 uk-text-right">
+    <button class="uk-button uk-button-primary" ng-disabled="busy" ng-click="refresh()"><div ng-if="busy" class="uk-text-muted" uk-spinner></div> Refresh</button>
+    <div class="uk-text-muted uk-margin-small-top">Auto refreshing in {{ autoRefreshSeconds }}...</div>
+  </div>
+</div>
+
+<div class="uk-margin-top uk-flex">
+  <div class="uk-flex-1 uk-text-center uk-width-1-4">
+    <h1>{{ (mergedStats.totalG2ADeposited || 0) | currency }}</h1>
+    <h3 class="uk-text-muted uk-margin-remove">G2A Deposits</h3>
+  </div>
+  <div class="uk-flex-1 uk-text-center uk-width-1-4">
+    <h1>{{ (mergedStats.totalSkinDeposited*0.7 || 0) | currency }}</h1>
+    <h3 class="uk-text-muted uk-margin-remove">Skin Deposit *.70</h3>
+  </div>
+</div>
+<div class="uk-margin-medium-top uk-flex">
+  <div class="uk-flex-1 uk-text-center uk-width-1-4">
+    <h1>{{ (mergedStats.totalWithdrawn || 0) | currency }}</h1>
+    <h3 class="uk-text-muted uk-margin-remove">Withdrawn</h3>
+  </div>
+  <div class="uk-flex-1 uk-text-center uk-width-1-4">
+    <h1>{{ (mergedStats.totalG2ADeposited+(mergedStats.totalSkinDeposited*0.7)-mergedStats.totalWithdrawn || 0) | currency }}</h1>
+    <h3 class="uk-text-muted uk-margin-remove">Est. Profit</h3>
+  </div>
+</div>
+
+<div class="uk-margin-bottom uk-padding uk-flex uk-margin-top">
+  <div class="uk-card uk-card-default uk-flex-1 uk-margin-right">
+    <div class="uk-card-header">
+        <div class="uk-grid-small uk-flex-middle" uk-grid>
+            <div class="uk-width-expand">
+                <h3 class="uk-card-title uk-margin-remove-bottom">Daily Statistics</h3>
+            </div>
+        </div>
+    </div>
+    <div class="uk-card-body">
+      <table class="uk-table uk-table-striped">
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>#</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr ng-repeat="(k, v) in mergedStats">
+            <td>{{ k }}</td>
+            <td class="uk-text-bold">{{ v | number:2 }}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="uk-card uk-card-default uk-flex-1 uk-margin-left">
+    <div class="uk-card-header">
+        <div class="uk-grid-small uk-flex-middle" uk-grid>
+            <div class="uk-width-expand">
+                <h3 class="uk-card-title uk-margin-remove-bottom">Case Earnings Last 24hr</h3>
+                <p class="uk-text-meta uk-margin-remove-top">{{ mergedStats.totalOpenings | number }} Cases Opened</p>
+                <button class="uk-button uk-button-default" ng-click="caseOrderToggle()">Order By: <b>{{caseOrder}}</b></button>
+                <button class="uk-button uk-button-default" ng-click="caseSortToggle()">Sort By: <b>{{caseSort}}</b></button>
+            </div>
+        </div>
+    </div>
+    <div class="uk-card-body">
+      <table class="uk-table uk-table-striped">
+        <thead>
+          <tr>
+            <th>Case Name</th>
+            <th>Openings</th>
+            <th>Profit</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr ng-repeat="case in cases | orderBy:caseSort:true">
+            <td><a ui-sref="case({ id: case.caseId })">{{ case.name }}</a></td>
+            <td>{{ case.totalOpenings }}</td>
+            <td class="uk-text-bold">
+              <span ng-if="case.profit != 0" ng-class="{'uk-text-success': case.profit > 0, 'uk-text-danger': case.profit < 0}">{{ case.profit | currency }}</span>
+              <span ng-if="case.profit == 0">-</span>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

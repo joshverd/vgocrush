@@ -1,0 +1,60 @@
+
+.container {
+  position: relative;
+
+  display: flex;
+  padding: 0 25px;
+  margin: 10px 0;
+  overflow: hidden;
+  justify-content: center;
+  flex: 1;
+}
+
+.leftSide {
+  display: flex;
+  flex-direction: column;
+  // max-width: 600px;
+  min-width: 400px;
+  max-width: 400px;
+  flex: 1;
+}
+
+.rightSide {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  overflow: hidden;
+  margin-left: 25px;
+  // max-width: 730px;
+  flex: 1;
+
+  > div {
+    width: 100%;
+    max-width: 900px;
+  }
+}
+
+.loaderContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  flex: 1;
+}
+
+.betBlocksContainer {
+  overflow: hidden;
+  transition: height 0.8s ease;
+}
+
+.betBlocks {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  overflow-y: auto;
+  flex: 1;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}

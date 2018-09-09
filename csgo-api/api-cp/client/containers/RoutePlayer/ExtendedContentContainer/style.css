@@ -1,0 +1,25 @@
+
+
+.controls-container {
+    display: flex;
+    justify-content: center;
+    padding: 3px;
+}
+.controls-selector{
+    width: 33%;
+    padding: 3px;
+    text-align: center;
+    font-size: 10px;
+    border-radius: 4px;
+}
+.controls-selector:hover{
+    background-color: rgba(0, 150, 136, 0.4);
+    color: #fff;
+    cursor: pointer;
+}
+.selected{
+    color: #009688;
+}
+.controls-selector .icon{
+    font-size: 18px;
+}

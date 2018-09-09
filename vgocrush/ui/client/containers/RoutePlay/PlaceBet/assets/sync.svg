@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="64px" height="38px" viewBox="0 0 64 38" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 45.2 (43514) - http://www.bohemiancoding.com/sketch -->
+    <title>sync</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="sync" transform="translate(0.000000, -2.000000)" fill-rule="nonzero" fill="#212231">
+            <path d="M5.504784,36.8225783 C5.504784,21.6980069 17.808784,9.39400686 32.9333554,9.39400686 C38.3664983,9.39400686 43.5779269,10.984864 48.0259269,13.9265783 L39.5139269,22.4385783 L63.056784,25.8031497 L59.6922126,2.26029257 L51.2990697,10.6534354 C45.9459269,6.88657829 39.5870697,4.82257829 32.9333554,4.82257829 C15.2876411,4.82257829 0.933355429,19.176864 0.933355429,36.8225783 C0.933355429,38.0842926 1.95735543,39.1082926 3.21906971,39.1082926 C4.480784,39.1082926 5.504784,38.0842926 5.504784,36.8225783 Z" id="Shape"></path>
+        </g>
+    </g>
+</svg>

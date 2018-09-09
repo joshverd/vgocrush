@@ -1,0 +1,13 @@
+.idea
+node_modules
+*.sw*
+*.DS_Store
+dist
+npm-debug.log
+data/
+rethinkdb_data/
+package-lock.json
+priceupdater/
+*.zip
+*.og
+bin

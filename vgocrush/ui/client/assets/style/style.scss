@@ -1,0 +1,15 @@
+
+@import 'definitions/base';
+
+body {
+  color: #8f95a0;
+
+  font-family: $defaultFontFamily;
+  font-size: 16px;
+  font-weight: 400;
+
+  background: #0b0c1b;
+  font-smooth: always;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+}

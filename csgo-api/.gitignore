@@ -1,0 +1,9 @@
+.DS_Store
+*.sw*
+
+node_modules
+.module-cache
+*.log*
+npm-debug.log
+*.zip
+.idea/

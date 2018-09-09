@@ -1,0 +1,71 @@
+
+@import '~assets/style/definitions';
+
+.container {
+  position: absolute 0;
+  z-index: 1;
+}
+
+.snow {
+  background-color: $christmasSnowColor;
+  border-radius: 30%;
+  bottom: 110vh;
+  position: absolute;
+}
+
+@for $i from 1 through 100  {
+  .snowFlake#{$i}{
+    $speed: random(5) + 1/random(7) + 20 + s;
+    $delay: (random(12) + 1/random(5)) + s;
+    $size: (random(4) + 1);
+    height: $size*3px;
+    left: random(100) + 0vw;
+    opacity: random(3)/10;
+    width: $size + px;
+
+    @include browsers((letItSnow $speed $delay linear infinite, shakeIt 4s $delay linear infinite));
+
+    &:after {
+      background-color: $christmasSnowColor;
+      border-radius: 100%;
+      content: '';
+      height: $size*3px;
+      position: absolute;
+      transform: rotate(60deg);
+      width: $size + px;
+    }
+
+    &:before {
+      @extend .snowFlake#{$i}:after;
+      transform: rotate(-60deg);
+    }
+  }
+}
+
+@include animation(letItSnow) {
+  from {
+    bottom: 100vh;
+  }
+
+  to {
+    bottom: -20vh;
+  }
+}
+
+@include animation(shakeIt) {
+  0% {
+    transform: rotate(-deg);
+  }
+
+  40% {
+    transform: rotate(10deg) translateX(0px);
+  }
+
+  60% {
+    transform: rotate(10deg) translateX(-10px);
+  }
+
+  100% {
+    transform: rotate(-deg);
+  }
+}

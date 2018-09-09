@@ -1,0 +1,104 @@
+
+$continueButtonColor: #b1c3d8;
+
+.wrapper {
+  position: absolute 0;
+  z-index: 20;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background: #fff;
+  background-image: url('assets/image/easter/background.svg');
+
+  font-family: proxima-nova, sans-serif;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  max-width: 75%;
+}
+
+.header {
+  display: flex;
+  flex-direction: column;
+
+  font-size: 2.2rem;
+  font-weight: 100;
+  color: #d6b6ce;
+  margin-bottom: 5px;
+  text-align: center;
+
+  opacity: 0;
+  transform: translateY(-15px);
+  animation: headerEnter 1.5s cubic-bezier(0, 0.86, 0.25, 1) forwards;
+
+  > img {
+    width: 100%;
+    max-width: 600px;
+    margin-bottom: 25px;
+  }
+
+  > div > span {
+    font-family: coquette, sans-serif;
+    font-weight: bold;
+  }
+}
+
+@keyframes headerEnter {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.subText {
+  text-align: center;
+  max-width: 500px;
+  margin: 0 auto;
+  margin-bottom: 15px;
+  color: #8f95a0;
+  font-size: 1.1rem;
+
+  opacity: 0;
+  transform: translateY(10px);
+  animation: headerEnter 1.5s cubic-bezier(0, 0.86, 0.25, 1) forwards;
+  animation-delay: 0.3s;
+}
+
+.list {
+  display: flex;
+  flex-direction: column;
+}
+
+.listItem {
+  display: flex;
+  align-items: center;
+  height: 40px;
+  min-height: 40px;
+  margin: 10px 0;
+  font-size: 1.2rem;
+
+  > img {
+    margin-right: 15px;
+    height: 40px;
+  }
+}
+
+.continueButton {
+  background: #fff;
+  color: $continueButtonColor;
+  border: 1px solid $continueButtonColor;
+  margin-top: 15px;
+  border-radius: 5px;
+
+  &:hover {
+    background-color: darken($continueButtonColor, 10);
+    color: #fff;
+    border-color: transparent;
+  }
+}

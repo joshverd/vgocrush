@@ -1,0 +1,28 @@
+
+.container {
+}
+
+.createModalContainer {
+  width: 100%;
+  max-width: 40vw;
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: stretch;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.modalBody {
+  padding: 10px;
+  box-sizing: border-box;
+}
+
+.container {
+  padding: 25px;
+  box-sizing: border-box;
+}
+
+.flexMiddle {
+  display: flex;
+  align-items: center;
+}

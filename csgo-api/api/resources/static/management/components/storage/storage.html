@@ -1,0 +1,27 @@
+<div class="uk-margin-top uk-container-center uk-container">
+  <p class="uk-text-muted">Bot item count and storage may not be instantly updated after accepting trade offers.</p>
+  <div class="uk-grid uk-margin-top" uk-grid>
+    <div class="uk-width-1-3" ng-repeat="bot in bots | orderBy: 'name'">
+      <div class="uk-card uk-card-default uk-width-1-1">
+        <div class="uk-card-header">
+          <div class="uk-grid-small uk-flex-middle" uk-grid>
+            <div class="uk-width-expand">
+              <h3 class="uk-card-title uk-margin-remove-bottom">{{ bot.name }}</h3>
+              <p class="uk-text-meta uk-margin-remove-top" ng-if="!free">{{ bot.steamId64 }}</p>
+            </div>
+          </div>
+          <div ng-if="bot.storage" class="uk-label">storage</div>
+          <div ng-repeat="group in bot.groups" class="uk-label">{{ group }}</div>
+        </div>
+        <div class="uk-card-body uk-text-center">
+          <h3 class="uk-text-muted uk-margin-remove">{{ bot.itemCount | number }} Items</h3>
+          <h4 class="uk-text-success uk-text-bold uk-margin-remove uk-margin-small-top">{{ bot.estimatedValue | currency }}</h4>
+          <progress class="uk-progress" value="{{ bot.itemCount }}" max="999"></progress>
+        </div>
+        <div class="uk-card-footer uk-flex uk-flex-center">
+          <a href="{{bot.tradeLink}}" target="_blank" class="uk-button uk-button-primary uk-margin-small-right">Trade</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

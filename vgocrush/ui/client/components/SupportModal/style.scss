@@ -1,0 +1,32 @@
+
+.faq {
+  max-height: 600px;
+  overflow-y: auto;
+}
+
+.faq p {
+  margin-top: 5px;
+  margin-bottom: 15px;
+  padding-bottom: 15px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.contactUs button {
+  display: block;
+  margin: 0 auto;
+}
+
+.contactUs p {
+  display: block;
+  margin: 15px auto;
+
+  max-width: 75%;
+  text-align: center;
+}
+.liveSupport {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-bottom: 25px;
+  border-bottom: solid 1px #eee;
+}

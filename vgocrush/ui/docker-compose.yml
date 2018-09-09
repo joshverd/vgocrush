@@ -1,0 +1,13 @@
+version: '3.5'
+services:
+  vgocrush-ui:
+    image: vgocrush/vgocrush:ui
+    ports:
+      - 7012:80
+    command: ["nginx", "-g", "daemon off;"]
+    environment:
+      - NODE_ENV=docker
+networks:
+  default:
+      external:
+        name: vgocrush-network

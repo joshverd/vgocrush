@@ -1,0 +1,89 @@
+
+@import '~assets/style/definitions';
+
+.button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  position: relative;
+  cursor: pointer;
+
+  font-size: 14px;
+  font-weight: 500;
+  height: 36px;
+  letter-spacing: .3px;
+  line-height: 36px;
+  padding: 0 16px;
+  text-align: center;
+  text-decoration: none;
+  white-space: nowrap;
+  user-select: none;
+  color: #fff;
+  background-color: $defaultButtonBackground;
+  border-radius: 3px;
+  border: none;
+
+  text-decoration: none;
+  transition: background-color .15s,color .15s ease-in-out;
+
+  > img {
+    height: 40px;
+    margin-right: 5px;
+  }
+
+  > i {
+    margin-right: 5px;
+  }
+
+  &:disabled {
+    cursor: not-allowed;
+    background: $disabledButtonColor;
+    color: #828a92;
+  }
+
+  &:focus {
+    outline: none;
+    border: none;
+  }
+
+  &:hover:not(:disabled) {
+    background-color: $defaultButtonHoverBackground;
+  }
+}
+
+.large {
+  font-size: 16px;
+  height: 50px;
+  line-height: 50px;
+  padding: 0 24px;
+}
+
+.primary {
+  background-color: #2f72d3;
+
+  &:active:not(:disabled) {
+    background-color: darken(#2f72d3, 15) !important;
+  }
+
+  &:hover:not(:disabled) {
+    background-color: darken(#2f72d3, 10);
+  }
+}
+
+.secondary {
+  background: #fff;
+  color: #8e949f;
+
+  &:active:not(:disabled) {
+    background-color: #f9f9f9 !important;
+  }
+
+  &:hover:not(:disabled) {
+    background-color: #f7f7f7;
+  }
+}
+
+.rounded {
+  border-radius: 45px;
+}

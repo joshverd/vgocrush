@@ -1,0 +1,79 @@
+{
+  "whitelist": [],
+  "app": {
+    "name": "CS:GO API",
+    "httpPort": 9000,
+    "offset": 0,
+    "sessionSecret": "secret",
+    "url": "http://127.0.0.1:7012",
+    "authUrl": "http://127.0.0.1:7012",
+    "accessCode": "000000",
+    "domains": [
+      "http://localhost:7012"
+    ],
+    "opskinsOAuth": {
+      "clientId": "",
+      "baseUrl": "https://oauth.opskins.com",
+      "secret": "",
+      "opskinsApiUrl": "https://api.opskins.com"
+    }
+  },
+  "namePromotion": {
+    "containsText": []
+  },
+  "plugins": {
+    "enabled": ["chat", "crash", "inventory"],
+    "options": {
+      "chat": {
+        "httpPort": 9001
+      },
+      "crash": {
+        "serverSeed": "crash",
+        "maxBet": 4000,
+        "maxProfit": 40000,
+        "instaRate": 20,
+        "bonusRate": 33,
+        "runnerIpc": {
+          "host": "127.0.0.1",
+          "port": 8889
+        }
+      },
+      "inventory": {
+        "exchangeFee": 0
+      }
+    }
+  },
+  "minimumDeposit": 0.01,
+  "maxWithdrawsItems":10,
+  "morgan": false,
+  "depositDiscount": 0.92,
+  "database": {
+    "db": "csgoapi",
+    "silent": true,
+    "host": "127.0.0.1",
+    "port": 28015
+  },
+  "sknexchange": {
+    "address": "http://127.0.0.1:5080",
+    "rpcKey": "sknexchange",
+    "authSecret": "",
+    "apiKey": "a",
+    "database": "sknexchange",
+    "rpcUrl": "http://127.0.0.1:5080/rpc",
+    "notifyUrl": "http://127.0.0.1:9000/skne",
+    "whitelist": ["127.0.0.1", "::ffff:127.0.0.1"],
+    "blacklistedItems": []
+  },
+  "redis": {
+    "host": "127.0.0.1",
+    "port": 6379
+  },
+  "steam": {
+    "apiKey": "",
+    "group": "103582791458091066"
+  },
+  "facebook": false,
+  "mailgun": false,
+  "supportEmails": [],
+  "depositStorageBots": []
+}

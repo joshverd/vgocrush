@@ -1,0 +1,24 @@
+
+.container {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+
+  margin-top: 25px;
+}
+
+.betBlocksWrapper {
+  position: relative;
+  overflow-y: auto;
+  flex: 1;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+.betBlocks {
+  height: 0;
+  overflow: hidden;
+  position: relative;
+}

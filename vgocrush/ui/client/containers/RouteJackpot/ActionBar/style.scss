@@ -1,0 +1,38 @@
+
+$height: 50px;
+
+.disabled {
+  opacity: 0.5;
+  pointer-events: none;
+}
+
+.container {
+  display: flex;
+  justify-content: flex-end;
+  transition: opacity 0.2s ease;
+  min-height: 50px;
+
+  > a, a:visited {
+    color: #8f8f95;
+    margin: 0 10px;
+    line-height: $height;
+    min-height: $height;
+    height: $height;
+    padding: 0px 35px;
+    border-radius: 100px;
+    font-weight: 500;
+    user-select: none;
+
+    transition: all 0.2s ease;
+
+    &:hover {
+      color: #bbbbc1;
+      background: #17172a;
+    }
+  }
+}
+
+.active {
+  background: #2679df !important;
+  color: #ffffff !important;
+}

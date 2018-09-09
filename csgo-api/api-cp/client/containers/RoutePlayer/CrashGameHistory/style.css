@@ -1,0 +1,55 @@
+
+.container {
+  display: flex;
+  flex-direction: column;
+  /* overflow: hidden; */
+  /* flex: 1; */
+}
+
+.content {
+  flex: 1;
+}
+
+.commandBar {
+  margin-bottom: 25px;
+  border-radius: 5px;
+}
+
+.detailsModal {
+  max-width: 85vw;
+  max-height: 85vh;
+  padding: 15px;
+}
+
+.gameStatus {
+  color: #fff;
+  font-weight: bold;
+  padding: 0 5px;
+}
+
+.preview {
+  display: flex;
+  flex-direction: column;
+  height: 200px;
+  margin: 25px 0;
+  overflow: scroll;
+}
+
+.upgrade {
+  display: flex;
+}
+
+.upgradeItems {
+  flex: 1;
+}
+
+.upgradeDivider {
+  width: 2px;
+  background: #e8e7e7;
+}
+
+.upgradeEmpty {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

@@ -1,0 +1,125 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height">
+    <link href="https://fonts.googleapis.com/css?family=Oxygen+Mono|Lobster" rel="stylesheet">
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-T8Gy5hrqNKT+hzMclPo118YTQO6cYprQmhrYwIiQ/3axmI1hQomh7Ud2hPOy8SP1" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.typekit.net/hgw8cvc.css?v=7">
+    <link rel="manifest" href="/manifest.json">
+    <title>VgoCrush | Discover a better way to upgrade skins</title>
+
+    <link rel="manifest" href="/manifest.json">
+
+<!--     <link rel="apple-touch-icon" sizes="180x180" href="/apple-icon-180x180.png">
+    <link rel="icon" type="image/png" sizes="192x192"  href="/android-icon-192x192.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png"> -->
+    <link rel="icon" type="image/png"  href="/logomark.png">
+    <meta name="msapplication-TileColor" content="#ffffff">
+<!--     <meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
+    <meta name="theme-color" content="#ffffff">
+    <link rel="manifest" href="/manifest.json"> -->
+    <meta name="description" content="Discover a better way to upgrade skins with VgoCrush. Instantly deposit skins, and watch them grow. Cashout anytime.">
+    <meta property="og:description" content="Discover a better way to upgrade skins with VgoCrush. Instantly deposit skins, and watch them grow. Cashout anytime."/>
+    <meta property="og:image" content="https://<yourwebsite>/logo.svg" />
+    <meta property="og:title" content="VgoCrush | Discover a better way to upgrade skins" />
+    <meta property="og:site_name" content="VgoCrush" />
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-T8Gy5hrqNKT+hzMclPo118YTQO6cYprQmhrYwIiQ/3axmI1hQomh7Ud2hPOy8SP1" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
+    <style type="text/css">
+    #loader {
+      position: fixed;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 1005;
+      -webkit-transition: opacity 0.4s linear;
+      -moz-transition: opacity 0.4s linear;
+      transition: opacity 0.4s linear;
+
+      background: #0b0c1b url(/image/pattern/dotclouds.png);
+      background-position: bottom;
+      background-size: 100%;
+      background-repeat: repeat-x;
+      /* animation: bgs 50s linear infinite; */
+    }
+
+    .f14 #loader {
+      background: #342771;
+    }
+
+    #loader.finished {
+      opacity: 0;
+      pointer-events: none;
+      background-image: none !important;
+      animation: none !important;
+    }
+
+    #loaderContainer {
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+
+      align-items: center;
+      justify-content: center;
+    }
+
+    #loaderContainer img {
+      display: block;
+      margin: 0 auto;
+      margin-bottom: 50px;
+      max-width: 500px;
+      opacity: 0;
+      transform: scale(0.2);
+      -webkit-animation: enter 1s ease forwards;
+      -moz-animation: enter 1s ease forwards;
+      animation: enter 1s ease forwards;
+    }
+
+    #loaderContainerSpinner {
+      display: block;
+      margin: 0 auto;
+      color: #a88f6d;
+      width: 64px;
+      height: 64px;
+    }
+
+    @keyframes enter {
+      20% {
+        transform: scale(1.1);
+        opacity: 0.7;
+      }
+
+      40% {
+        opacity: 0.4;
+      }
+
+      100% {
+        opacity: 1;
+        transform: scale(1);
+      }
+    }
+
+    @keyframes bgs {
+      0%{
+        background-position-x: 0;
+      }
+
+      100%{
+        background-position-x: 11610px;
+      }
+    }
+
+    </style>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script src="/js/modernizr.js"></script>
+    <script src="/vendor.bundle.js"></script>
+    <script src="/bundle.js"></script>
+  </body>
+</html>

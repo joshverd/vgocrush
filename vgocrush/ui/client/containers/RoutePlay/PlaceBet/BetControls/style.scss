@@ -1,0 +1,317 @@
+
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  padding: 0 20px;
+  box-sizing: border-box;
+
+  max-width: 250px;
+  flex: 1;
+
+  border-radius: 0 0 0 7px;
+  background: #0f0f1d;
+
+  > label {
+    font-weight: bold;
+    color: #fff;
+    margin-bottom: 10px;
+  }
+}
+
+.autoCashOutContainer {
+  position: relative;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  > div {
+    position: relative;
+    overflow: hidden;
+    height: 50px;
+    flex: 1;
+    max-width: 100px;
+
+    > input {
+      height: 50px;
+      width: 100%;
+
+      font-size: 1.5rem;
+      font-weight: bold;
+      background: #151726;
+      color: #fff;
+      text-align: center;
+      padding: 0 15px;
+      border: none;
+      border-radius: 3px;
+      box-sizing: border-box;
+
+      &:focus, &:active {
+        outline: none;
+        border: none;
+      }
+    }
+  }
+
+  > a {
+    color: #878d97;
+    font-size: 1.2rem;
+    opacity: 0.9;
+
+    &:hover {
+      color: #9fa5af;
+      opacity: 1;
+
+/*      i {
+        animation: rotate 1.5s linear infinite;
+      } */
+    }
+  }
+}
+
+@keyframes rotate {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(359deg);
+  }
+}
+
+.cashoutButtonContainer {
+  min-height: 45px;
+  margin-top: 10px;
+
+  > button {
+    width: 100%;
+  }
+}
+
+.cashoutButton {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  font-size: 1.1rem;
+  font-weight: 500;
+  line-height: 2.9rem;
+  border-radius: 5px;
+  width: 100%;
+
+  box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.1);
+
+  transition: background-color 0.4s ease;
+  background-image: url('assets/image/starPattern.png');
+  animation: cashoutButtonAnimation 200s linear infinite;
+
+  img {
+    width: 45px;
+    filter: drop-shadow(0px 0px 6px rgba(0, 0, 0, 0.6));
+  }
+
+  > i {
+    margin-right: 4px;
+  }
+}
+
+@keyframes cashoutButtonAnimation {
+  from {
+    background-position: 2px 10px;
+  }
+
+  to {
+    background-position: 2500px 2500px;
+  }
+}
+
+.beginUpgrade {
+  composes: cashoutButton;
+
+  background-color: #2879dd;
+  // box-shadow: 0px -2px 19px rgba(40, 121, 221, 0.50);
+
+  &:hover {
+    background-color: #3b8df3;
+  }
+}
+
+.cancelUpgrade {
+  composes: cashoutButton;
+
+  background-color: #fe3273;
+  // box-shadow: 0px 10px 35px rgba(255, 50, 115, 0.25);
+
+  &:hover:not(:disabled) {
+    background-color: #f7125b;
+  }
+}
+
+.finishUpgrade {
+  composes: cashoutButton;
+
+  font-family: Cousine, monospace;
+  font-weight: bold;
+  background-color: #2778de;
+  font-size: 1.2rem;
+  animation: none;
+  // background-image: none;
+  // background: linear-gradient(to right, #197adf, #fd2b69);
+  color: #fff;
+
+  box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.1);
+
+  > div {
+    display: flex;
+    align-items: center;
+  }
+
+  img {
+    filter: drop-shadow(0px 0px 6px rgba(0, 0, 0, 0.2));
+    margin-right: 10px;
+    width: 30px;
+  }
+
+  &:hover:not(:disabled) {
+    background-color: #3b8df3;
+  }
+}
+
+.finishUpgradeOverlay {
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  background: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(253, 43, 105, 0.85));
+  pointer-events: none;
+  z-index: -1;
+}
+
+.maxBetWarning {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 100;
+  font-size: 0.85rem;
+  height: 0px;
+  opacity: 0;
+  overflow: hidden;
+  transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+
+  &.visible {
+    opacity: 1;
+    height: 40px;
+  }
+}
+
+.autoCashoutButton {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 0;
+
+  height: 50px;
+  width: 300px;
+
+  background: #2778dd;
+  border-radius: 3px;
+  cursor: pointer;
+
+  opacity: 0.6;
+
+  > img {
+    transition: all 0.4s ease;
+    // filter: drop-shadow(0px 2px 5px rgba(0, 0, 0, 0.2));
+    width: 80px;
+  }
+
+  > div {
+    font-weight: 900;
+    font-size: 0.65rem;
+    text-align: center;
+    margin-top: 2px;
+    color: rgba(255, 255, 255, 0.7);
+    transition: all 0.3s ease;
+  }
+
+  &:hover {
+    opacity: 1;
+
+    > div {
+      color: #fff;
+      font-size: 0.75rem;
+      font-weight: 900;
+      transform: translateY(-6px);
+      margin: 0;
+    }
+
+    > img {
+      transform: rotate(-11deg) scale(1.75) translateY(3px);
+      opacity: 0.2;
+      // filter: drop-shadow(0px 2px 8px rgba(0, 0, 0, 0.3));
+    }
+  }
+}
+
+.autoCashout {
+  z-index: 1;
+  opacity: 0.2;
+  transform: translateX(51px);
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  border-radius: 5px;
+  background: #0b0c19;
+  // color: rgba(255, 255, 255, 0.5);
+  // opacity: 0.5;
+
+  cursor: pointer;
+  animation: autoCashoutEnter 0.4s ease forwards;
+
+  > img {
+    height: 90%;
+  }
+}
+
+@keyframes autoCashoutEnter {
+  to {
+    opacity: 1;
+    transform: translateX(0px);
+  }
+}
+
+.autoCashoutDetails {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: 0.9rem;
+  margin-top: 10px;
+  min-height: 10px;
+
+  > div {
+    transform: translateX(300px);
+    opacity: 0;
+
+    animation: autoCashoutEnter 0.3s ease forwards;
+    animation-delay: 0.2s;
+  }
+}
+
+.clearAutoCashout {
+  position: absolute;
+  top: calc(50% - 20px);
+  right: calc(50% - 20px);
+  z-index: 5;
+  width: 40px;
+  height: 40px;
+  line-height: 40px;
+  background: rgba(0, 0, 0, 0.35);
+  border-radius: 50%;
+  text-align: center;
+}

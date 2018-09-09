@@ -1,0 +1,276 @@
+
+.inventoryContainer {
+  flex: 1;
+  overflow: auto;
+
+  &::-webkit-scrollbar {
+    width: 0;
+  }
+}
+
+.actionBar {
+  padding: 15px 0px;
+
+  display: flex;
+  justify-content: center;
+
+  z-index: 10;
+
+  > button {
+    flex: 1;
+    margin: 0 10px;
+  }
+}
+
+.depositButton {
+  background: #fe3273;
+  // box-shadow: 0px 10px 35px rgba(255, 50, 115, 0.25);
+  transition: all 0.2s ease;
+  max-width: 200px;
+
+  &:disabled {
+    width: 0px !important;
+    max-width: 0px !important;
+    overflow: hidden;
+    padding: 0;
+    margin: 0;
+    opacity: 0;
+  }
+}
+
+.withdrawButton {
+  background: #2879dd;
+  // box-shadow: 0px 10px 35px rgba(42, 120, 217, 0.35);
+  font-weight: 500 !important;
+  color: #fff;
+  max-width: 60% !important;
+  width: 100%;
+  transition: all 0.3s ease
+}
+
+.tradeButton {
+  composes: withdrawButton;
+
+  background: #f72e6c;
+  // box-shadow: 0px 10px 35px rgba(248, 45, 107, 0.35);
+
+  &:disabled {
+    width: 0px !important;
+    max-width: 0px !important;
+    overflow: hidden;
+    padding: 0;
+    margin: 0;
+    opacity: 0;
+  }
+}
+
+.withdrawButton:disabled {
+  background: #1b84e2;
+  // box-shadow: 0px 10px 35px rgba(27, 132, 226, 0.25);
+  max-width: 200px;
+
+  // > span {
+  //   color: #fff;
+  //   -webkit-text-fill-color: #fff;
+  //   background: none !important;
+  // }
+}
+
+.quickBetButton {
+  background: #fff;
+  // box-shadow: 0px 10px 35px rgba(255, 50, 115, 0.25);
+  font-weight: 500 !important;
+  transition: all 0.2s ease;
+
+  width: 0px;
+  max-width: 0px;
+  overflow: hidden;
+  padding: 0;
+  margin: 0;
+  opacity: 0;
+
+  > span {
+    background-image: linear-gradient(to right, #fd2b69 0%, #197adf 20%, #fd2b69 100%);
+    background-size: 200%;
+    background-position: 100% 0;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+}
+
+.showQuickButton {
+  width: inherit;
+  max-width: inherit;
+  padding: inherit;
+  margin: inherit;
+  opacity: 1;
+}
+
+//
+.inventory {
+  composes: segment from 'components/Segment/style.scss';
+  position: relative;
+
+  display: flex;
+  flex-direction: column;
+
+  position: relative;
+  flex: 1;
+
+  margin-top: 25px;
+
+  // &:before {
+  //   position: absolute;
+  //   left: 0;
+  //   right: 0;
+  //   bottom: 0;
+  //   height: 140px;
+  //   content: ' ';
+  //   z-index: 5;
+  //   background: linear-gradient(to top, #131525, transparent);
+  //   pointer-events: none;
+  // }
+
+  &:after {
+    opacity: 0;
+  }
+}
+
+.empty {
+  position: absolute 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  flex: 1;
+  font-size: 1.1rem;
+  font-weight: 100;
+  color: #303142;
+  margin-bottom: 80px;
+  padding: 10%;
+  align-self: center;
+  text-align: center;
+}
+
+.tabs {
+  display: flex;
+  justify-content: center;
+  min-height: 30px;
+  margin-bottom: 25px;
+}
+
+.tab {
+  position: relative;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  border-top: 2px solid #8f95a0;
+  padding: 0 15px;
+  height: 32px;
+  font-size: 1rem;
+  color: #8f95a0;
+  font-weight: 500;
+
+  &:after {
+    content: ' ';
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    height: 1px;
+    background: #8f95a0;
+    box-shadow: 0px 10px 24px #8f95a0;
+  }
+}
+
+.blueTab {
+  composes: tab;
+
+  border-top: 2px solid #267adf;
+  color: #267adf;
+
+  &:after {
+    background: #2d7ee1;
+    box-shadow: 0px 10px 24px #267adf;
+  }
+}
+
+.skins {
+}
+
+.skin {
+  background: rgba(231, 232, 235, 0.01);
+
+  &:hover {
+    background: #111323;
+  }
+}
+
+// @media (max-width: 1200px) {
+//   .inventory {
+//     display: none;
+//   }
+// }
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px;
+  margin-bottom: 10px;
+  box-sizing: border-box;
+  min-height: 45px;
+  align-items: center;
+}
+
+.inventoryWorth {
+  // background: #1a79df;
+  // color: #fff;
+  padding: 5px 10px;
+  border-radius: 5px;
+  font-weight: 900;
+  font-size: 0.8rem;
+}
+
+.transactions {
+  composes: inventoryWorth;
+  background: none;
+  color: inherit;
+  cursor: pointer;
+
+  &:hover {
+    color: #fff;
+  }
+}
+
+.selectAll {
+  display: flex;
+  align-items: center;
+
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: #c3bcbc;
+
+  > input {
+    cursor: pointer;
+    margin-right: 5px;
+  }
+}
+
+.notAccepted {
+  position: absolute 0;
+  z-index: 10;
+  background: rgba(255, 255, 255, 0.85);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  color: #949494;
+  font-weight: 400;
+  font-size: 1.1rem;
+}
+
+.blur {
+  filter: blur(3px);
+}

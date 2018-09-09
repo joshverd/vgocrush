@@ -1,0 +1,31 @@
+{
+  "app": {
+    "url": "http://127.0.0.1:7012",
+    "authUrl": "http://127.0.0.1:9000",
+    "domains": [
+      "http://localhost:7012"
+    ]
+  },
+  "database": {
+    "host": "rethinkdb"
+  },
+  "redis": {
+    "host": "redis"
+  },
+  "plugins": {
+      "options": {
+        "crash": {
+          "runnerIpc": {
+            "host": "csgo-crash"
+          }
+        }
+      }
+  },
+  "sknexchange": {
+    "address": "http://skne-api:5080",
+    "database": "sknexchange",
+    "rpcUrl": "http://skne-api:5080/rpc",
+    "notifyUrl": "http://csgo-api:9000/skne",
+    "whitelist": ["127.0.0.1", "::ffff:127.0.0.1"]
+  }
+}

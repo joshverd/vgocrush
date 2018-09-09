@@ -1,0 +1,159 @@
+.modalDialog {
+  max-width: 1200px;
+}
+
+.modalHeader {
+  display: flex;
+}
+
+.exchangeInfo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-right: 20px;
+}
+
+.exchangeInfoCredit {
+  font-size: 1.2rem;
+  font-weight: 400;
+}
+
+.exchangeInfoText {
+  font-size: 0.8rem;
+}
+
+.exchangeButton {
+  background: linear-gradient(to right, #197adf, #fd2b69);
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+  min-width: 200px;
+
+  &:disabled {
+    opacity: 0.65;
+  }
+}
+
+.empty {
+  position: absolute 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.3rem;
+  opacity: 0.4;
+
+  user-select: none;
+}
+
+.skins {
+  display: flex;
+  flex-direction: column;
+}
+
+.skinsContainer {
+  position: relative;
+
+  display: flex;
+  justify-content: center;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+}
+
+.sortButton {
+  color: #949aa4;
+  background: none;
+  margin-left: 15px;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+
+  margin-bottom: 10px;
+}
+
+.selectedItems {
+  display: flex;
+  flex-wrap: wrap;
+  min-height: 40px;
+  margin: 10px 0;
+}
+
+.selectedItem {
+  display: flex;
+  align-items: center;
+
+  background: #e2e2e2;
+  color: #5a5757;
+  font-size: 0.8rem;
+  font-weight: 600;
+  padding: 5px 10px;
+  border-radius: 4px;
+
+  margin-right: 5px;
+  margin-bottom: 10px;
+  user-select: none;
+  cursor: pointer;
+}
+
+.selectedItem > i {
+  margin-left: 10px;
+}
+
+.selectedItem > i:hover {
+  color: #e0377a;
+}
+
+.confirmExchange {
+  position: absolute 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  z-index: 10;
+
+  background: rgba(255, 255, 255, 0.85);
+  border-radius: 3px;
+  opacity: 0;
+
+  animation: fadeIn 0.3s ease forwards;
+}
+
+@keyframes fadeIn {
+  100% {
+    opacity: 1;
+  }
+}
+
+.confirmExchangeContainer {
+  display: flex;
+  flex-direction: column;
+  max-width: 700px;
+
+  > p {
+    font-size: 1.2rem;
+    color: #8a8a8a;
+    margin: 5px 0;
+  }
+}
+
+.confirmExchangeHeader {
+  font-size: 2.1rem;
+  font-weight: 400;
+  color: #525252;
+}
+
+.confirmExchangeButtons {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 15px;
+
+  > button {
+    margin-left: 15px;
+  }
+}
+
+.blur {
+  filter: blur(2px);
+}

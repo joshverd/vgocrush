@@ -1,0 +1,57 @@
+
+$depositButtonColor: #E3B23C;
+$snipeButtonColor: #f44336;
+
+.container {
+  display: flex;
+  flex-direction: column;
+  margin-top: 15px;
+}
+
+.depositButton {
+  font-family: proxima-nova, sans-serif;
+  color: #4e3a09;
+  font-weight: 900;
+  background-color: $depositButtonColor;
+  border-radius: 100px;
+  transition: all 0.2s ease;
+
+  &:hover:not(:disabled) {
+    background-color: lighten($depositButtonColor, 10);
+  }
+
+  &:active:not(:disabled) {
+    background-color: darken($depositButtonColor, 5) !important;
+    transform: scale(1.05) translateY(-4px);
+  }
+
+  > img {
+    width: 80px;
+    margin-right: 10px;
+    transition: all 0.3s ease;
+  }
+}
+
+.snipeButton {
+  background-color: $snipeButtonColor;
+  color: #fff;
+
+  &:hover:not(:disabled) {
+    background-color: lighten($snipeButtonColor, 10);
+
+    > img {
+      opacity: 0.7;
+      transform: scale(1.03);
+    }
+  }
+
+  &:active:not(:disabled) {
+    background-color: darken($snipeButtonColor, 5) !important;
+  }
+
+  > img {
+    width: 80px;
+    margin-right: 10px;
+    transition: all 0.3s ease;
+  }
+}

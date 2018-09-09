@@ -1,0 +1,41 @@
+
+.upgradeWin {
+  position: relative;
+  height: 100%;
+  width: 80px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.upgradeArrow {
+  height: 100%;
+  transform: translateY(100px);
+  opacity: 0.1;
+  animation: upgradeArrowEnter 1.2s cubic-bezier(0.07, 0.76, 0.25, 1) forwards;
+}
+
+.upgradeCashout {
+  position: absolute;
+  top: calc(50% - 15px);
+  right: 0;
+  left: 0;
+  height: 30px;
+  font-size: 1.2rem;
+  color: #808590;
+  font-weight: 500;
+  text-align: center;
+  line-height: 30px;
+  border-radius: 5px;
+  z-index: 5;
+}
+
+/*.cashedOut .upgradeCashout {
+  color: #cddc39;
+}*/
+
+@keyframes upgradeArrowEnter {
+  100% {
+    transform: translateY(0px);
+  }
+}

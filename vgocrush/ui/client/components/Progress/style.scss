@@ -1,0 +1,33 @@
+
+@import '~assets/style/definitions';
+
+$progressBarBorderRadius: 2px;
+
+.progress {
+  position: relative;
+  height: $progressBarHeight;
+  background: $progressBarContainerBackground;
+  border-radius: $progressBarBorderRadius;
+  width: 100%;
+
+  &:after {
+    content: ' ';
+    position: absolute;
+    top: -3px;
+    bottom: -3px;
+    left: calc(50% - 1px);
+    background: rgba(0, 0, 0, 0.35);
+    width: 2px;
+    opacity: 0.8;
+  }
+}
+
+.progressBar {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  background: $progressBarFillColor;
+  border-radius: $progressBarBorderRadius;
+  transition: width 0.4s ease;
+}

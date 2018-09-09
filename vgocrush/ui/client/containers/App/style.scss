@@ -1,0 +1,91 @@
+
+a, a:visited, a:hover {
+  text-decoration: none;
+}
+
+img {
+  user-select: none;
+  -webkit-user-drag: none;
+}
+
+form {
+  margin-top: 15px;
+}
+
+::-webkit-input-placeholder {
+  color: #595e69;
+  font-weight: 500;
+}
+
+::-moz-placeholder {
+  color: #595e69;
+  font-weight: 500;
+}
+
+:-ms-input-placeholder {
+  color: #595e69;
+  font-weight: 500;
+}
+
+:-moz-placeholder {
+  color: #595e69;
+  font-weight: 500;
+}
+
+.rootContainer {
+  position: fixed 0;
+  overflow: hidden;
+  display: flex;
+
+/*
+  background-image: url('assets/image/pattern/dotclouds.png');
+  background-position: bottom;
+  background-size: 100%;
+  background-repeat: repeat-x;
+
+  &:after {
+    position: absolute 0;
+    content: ' ';
+    background-image: url('assets/image/pattern/dotclouds.png');
+    background-position: bottom;
+    background-size: 100%;
+    background-repeat: repeat-x;
+    opacity: 0.4;
+    pointer-events: none;
+  }
+
+  &:before {
+    position: absolute 0;
+    content: ' ';
+    background-image: url('assets/image/pattern/dotclouds.png');
+    background-position: 0 100%;
+    background-size: 100%;
+    background-repeat: repeat-x;
+    transform: rotate(180deg);
+    opacity: 0.3;
+
+    pointer-events: none;
+  }*/
+}
+
+.rootContentContainer {
+  position: relative;
+
+  display: flex;
+  flex-direction: column;
+  // align-items: center;
+  overflow: hidden;
+
+  flex: 1;
+}
+
+.rootContent {
+  display: flex;
+  flex: 1;
+  overflow: hidden;
+
+  // max-width: 98%;
+  width: 100%;
+  // justify-self: center;
+  // align-self: center;
+}

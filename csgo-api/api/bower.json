@@ -1,0 +1,26 @@
+{
+  "name": "csgoapi",
+  "version": "0.0.0",
+  "authors": [
+    "csgoapi"
+  ],
+  "description": "",
+  "main": "",
+  "moduleType": [],
+  "license": "MIT",
+  "homepage": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "uikit": "v3.0.0-beta.6",
+    "jquery": "^3.2.1",
+    "angular": "^1.6.4",
+    "angucomplete-alt": "^3.0.0",
+    "angular-ui-router": "^1.0.3"
+  }
+}

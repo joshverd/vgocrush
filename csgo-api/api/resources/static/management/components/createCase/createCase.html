@@ -1,0 +1,109 @@
+<div class="uk-margin-top uk-container-center uk-container uk-margin-large-bottom" ng-if="!!details.openingsCount">
+  <div class="uk-flex">
+    <div class="uk-flex-1 uk-text-center">
+      <h3 class="uk-margin-remove">{{ details.openingsCount | number }}</h3>
+      <span class="uk-text-muted">Openings</span>
+    </div>
+    <div class="uk-flex-1 uk-text-center">
+      <h3 class="uk-margin-remove">{{ details.profit | currency }}</h3>
+      <span class="uk-text-muted">Case Profit</span>
+    </div>
+  </div>
+</div>
+
+<div class="uk-margin-top uk-container-center uk-container">
+  <div class="uk-flex uk-flex-middle">
+    <div class="uk-flex-1">
+      <div ng-if="details.playerId">This is a player made case created by <a ui-sref="player({ id: details.playerId })">{{ details.player.displayName }}</a></div>
+      <form class="uk-form-stacked uk-width-1-1">
+        <div class="uk-margin">
+          <label class="uk-form-label uk-text-bold">Case Name:</label>
+          <div class="uk-form-controls">
+              <input ng-disabled="busy" class="uk-input" type="text" placeholder="Enter a case name..." ng-model="details.name" />
+          </div>
+        </div>
+        <div class="uk-margin">
+          <label class="uk-form-label uk-text-bold">Open Price:</label>
+          <div class="uk-form-controls">
+            <input ng-disabled="busy" class="uk-input" type="number" step="0.01" min="0" value="0" ng-model="details.price" />
+          </div>
+        </div>
+        <div class="uk-margin uk-flex uk-flex-middle">
+          <button class="uk-button uk-button-primary uk-button-small" ng-click="determinePrice()">Auto Determine Price</button>
+        </div>
+        <div class="uk-margin">
+          <label class="uk-form-label uk-text-bold">Case Style:</label>
+          <div class="uk-form-controls">
+            <div ng-if="!styles.length" uk-spinner></div>
+            <select ng-disabled="busy" ng-if="styles.length" ng-model="selectedStyle.id" class="uk-input">
+              <option ng-repeat="style in styles" value="{{style.id}}">{{ style.name }}</option>
+            </select>
+          </div>
+        </div>
+        <div ng-if="!details.playerId" class="uk-margin">
+          <label class="uk-form-label uk-text-bold"><input ng-disabled="busy" type="checkbox" ng-model="details.free" /> Set as Free Case (Will override the current free case)</label>
+        </div>
+        <div class="uk-margin">
+          <label class="uk-form-label uk-text-bold"><input ng-disabled="busy" type="checkbox" ng-model="details.disabled" /> Disable Case (Will also hide from main page and opening)</label>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <div class="uk-margin-top">
+    <h3 class="uk-text-primary">Items</h3>
+    <table class="uk-table uk-table-striped uk-table-condensed">
+      <thead>
+        <tr>
+          <th width="10%"></th>
+          <th>Item</th>
+          <th>Percentage</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr ng-repeat="item in items">
+          <td>
+            <img ng-if="item.item" ng-src="{{item.item.originalObject.icon}}" />
+          </td>
+          <td ng-if="item.type === 'cash'">
+            Cash Amount:<input class="uk-input" type="number" ng-model="items[$index].prize" placeholder="10" />
+          </div>
+          <td ng-if="item.type !== 'cash'">
+            <angucomplete-alt placeholder="Search items"
+              ng-disabled="busy"
+              pause="300"
+              remote-url="/_acp/items/find?search="
+              remote-url-data-field="results"
+              selected-object="items[$index].item"
+              search-fields="name"
+              title-field="name"
+              image-field="icon"
+              minlength="1"
+              input-class="uk-input"
+              initial-value="items[$index].name"
+              match-class="highlight"></angucomplete>
+              <div ng-if="item.item" class="uk-text-success">{{item.item.originalObject.price | currency}}</div>
+          </td>
+          <td width="15%">
+            <input class="uk-input" type="number" ng-model="items[$index].odds" />
+          </td>
+          <td class="uk-text-right"><button ng-disabled="busy" class="uk-button uk-button-danger" ng-click="deleteItem($index)">Remove</button></td>
+        </tr>
+      </tbody>
+      <tfoot>
+        <td></td>
+        <td>
+          <button class="uk-button uk-button-default" ng-click="addItem()">Add Item</button>
+          <button class="uk-button uk-button-default" ng-click="addCash()">Add Cash</button>
+        </td>
+        <td colspan="2" class="uk-text-right">
+          <button ng-if="details.playerId" ng-disabled="busy" class="uk-button uk-button-default" ui-sref="player({ id: details.playerId })">Cancel</button>
+          <button ng-if="!details.playerId" ng-disabled="busy" class="uk-button uk-button-default" ui-sref="cases">Cancel</button>
+          <button ng-if="details.id" ng-disabled="busy" class="uk-button uk-button-danger" ng-click="delete()">Delete Case</button>
+          <button ng-disabled="busy" class="uk-button uk-button-primary" ng-click="save()">Save Case</button>
+        </td>
+      </tfoot>
+    </table>
+  </div>
+</div>

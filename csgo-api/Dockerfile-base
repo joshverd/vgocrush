@@ -1,0 +1,11 @@
+FROM mhart/alpine-node:8
+ADD api/package.json /tmp/package.json
+RUN apk add --no-cache --virtual .build-deps  build-base g++ cairo-dev jpeg-dev pango-dev bash imagemagick \
+    && cd /tmp \
+    && npm install \
+    && npm install color-thief \
+    && mkdir -p /opt/vgocrush \
+    && cp -a /tmp/node_modules /opt/vgocrush/ \
+    && apk del --purge .build-deps
+ENV TZ=America/Los_Angeles
+WORKDIR /opt/vgocrush

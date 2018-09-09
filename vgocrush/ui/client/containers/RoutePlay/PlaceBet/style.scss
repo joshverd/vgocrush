@@ -1,0 +1,775 @@
+
+.placeBet {
+  position: relative;
+
+  display: flex;
+  // align-items: center;
+  // justify-content: center;
+  flex-direction: column;
+
+  min-height: 250px;
+  height: 250px;
+}
+
+.sides {
+  display: flex;
+  flex: 1;
+}
+
+.wagerSide {
+  // background: rgb(22, 23, 37);
+  // border-right: 1px solid #0f111f;
+  // transition: opacity 0.3s ease;
+
+  padding: 0 15px;
+  box-sizing: border-box;
+}
+
+.wagerSide, .targetSide {
+  display: flex;
+  flex-direction: column;
+
+  position: relative;
+  flex: 1;
+}
+
+.targetSide {
+  .itemsValue {
+    right: initial;
+    left: 0;
+
+    border-radius: 0 0 5px 0;
+  }
+}
+
+.upgradeComplete {
+  .itemIcon {
+    opacity: 1 !important;
+  }
+
+  .itemsContainer:after {
+    position: absolute 0;
+    content: ' ';
+    background: rgba(76, 175, 80, 0.15);
+    border: 1px solid #4CAF50;
+    border-radius: 2px;
+    opacity: 0;
+    animation: upgradeCompleteEnter 0.4s ease forwards;
+  }
+}
+
+@keyframes upgradeCompleteEnter {
+  to {
+    opacity: 1;
+  }
+}
+
+.middleSide {
+  // position: absolute;
+  // bottom: 0;
+  // left: calc(50% - 125px);
+
+  // display: flex;
+  // flex-direction: column;
+  // justify-content: flex-end;
+  // padding: 0 20px 20px 20px;
+  // box-sizing: border-box;
+  //
+  // width: 250px;
+  // min-width: 250px;
+  // border-radius: 0 0 6px 6px;
+  //
+  // z-index: 10;
+}
+
+.verticalCenter {
+  margin-top: 40px;
+  flex: 1;
+}
+
+.sideHeader {
+  text-align: center;
+  color: #fff;
+  font-weight: 900;
+  font-size: 0.9rem;
+  line-height: 40px;
+  height: 40px;
+  user-select: none;
+}
+
+.itemsContainer {
+  position: relative;
+
+  display: flex;
+  // align-items: center;
+  justify-content: center;
+  overflow: auto;
+
+  flex: 1;
+
+  &::-webkit-scrollbar {
+    width: 0;
+  }
+}
+
+.items {
+  position: relative;
+
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+
+  z-index: 5;
+
+  // &:after {
+  //   position: absolute;
+  //   top: calc(50% - 90px);
+  //   right: calc(50% - 90px);
+  //   content: ' ';
+  //   background: #fff;
+  //   border-radius: 50%;
+  //   width: 180px;
+  //   height: 180px;
+  //   z-index: 0;
+  //   opacity: 0.01;
+  //   pointer-events: none;
+  // }
+
+  // &:hover {
+  //   background: #141623;
+  //
+  //   .itemsEmptyMessage {
+  //     color: #666975;
+  //   }
+  //
+  //   &:after {
+  //     opacity: 0.02;
+  //   }
+  // }
+}
+
+.itemsValue {
+  position: absolute;
+  top: 0;
+  right: 0;
+  padding: 10px 5px;
+  min-width: 75px;
+  text-align: center;
+  border-radius: 0 0 0 5px;
+
+  font-size: 1rem;
+  font-weight: 900;
+}
+
+.itemsEmptyMessage {
+  user-select: none;
+  text-align: center;
+  font-size: 1.3rem;
+  color: #222432;
+  max-width: 500px;
+  width: 100%;
+}
+
+.startUpgrade {
+  background: #2879dd;
+  box-shadow: 0px -2px 19px rgba(40, 121, 221, 0.51);
+  border-radius: 5px;
+
+  // background: linear-gradient(to right, #197adf, #fd2b69);
+  margin-top: 5px;
+
+  font-size: 1.2rem;
+  line-height: 3.5rem;
+
+  &:disabled {
+    opacity: 0.5;
+    cursor: initial;
+  }
+
+  &:hover:not(:disabled) {
+    background: #3b93ff;
+  }
+}
+
+.finishUpgrade {
+  composes: startUpgrade;
+
+  background: #fe3273;
+  box-shadow: 0px 10px 35px rgba(255, 50, 115, 0.25);
+
+  &:hover:not(:disabled) {
+    background: #f7125b;
+  }
+}
+
+.middleStat {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 3px 0;
+  font-family: Verdana;
+  font-size: 2rem;
+  text-align: center;
+}
+
+.middleStatLabel {
+  text-align: center;
+  font-size: 0.8rem;
+  font-weight: 900;
+  margin-top: 5px;
+  margin-bottom: 20px;
+  color: #3d404a;
+}
+
+//
+// .itemsContainer {
+//   display: flex;
+//   align-items: center;
+//   min-height: 250px;
+//   position: relative;
+//   background: transparent url(https://www.transparenttextures.com/patterns/az-subtle.png);
+// }
+//
+// .items {
+//   position: relative;
+//
+//   display: flex;
+//   justify-content: center;
+//   align-items: center;
+//   flex-wrap: wrap;
+//   flex: 1;
+//
+//   padding: 15px;
+//   box-sizing: border-box;
+//
+//   cursor: pointer;
+//
+//   &:after {
+//     position: absolute;
+//     top: calc(50% - 110px);
+//     right: calc(50% - 110px);
+//     content: ' ';
+//     background: rgba(255, 255, 255, 0.01);
+//     // border: 1px solid rgba(255, 255, 255, 0.05);
+//     border-radius: 50%;
+//     width: 220px;
+//     height: 220px;
+//     z-index: 0;
+//
+//     will-change: background;
+//     transition: background 0.15s ease;
+//   }
+//
+//   &:hover {
+//     &:after {
+//       background: rgba(255, 255, 255, 0.015);
+//     }
+//
+//     .emptyItems {
+//       opacity: 0.1;
+//     }
+//
+//     .chooseText {
+//       color: rgba(255, 255, 255, 0.5);
+//     }
+//   }
+//
+//   .step {
+//     background: red;
+//     position: top;
+//     position: absolute;
+//     top: 0;
+//     right: 0;
+//     left: 0;
+//     height: 5px;
+//   }
+// }
+//
+.item {
+  position: relative;
+
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+
+  width: 140px;
+  margin: 5px 15px;
+  z-index: 5;
+
+  transition: all 0.3s ease;
+}
+
+.itemIcon {
+  height: 75px;
+  z-index: -1;
+
+  img {
+    width: 100%;
+    filter: drop-shadow(0px 0px 7px rgba(0, 0, 0, 0.5));
+    opacity: 0.6;
+  }
+}
+
+.compactItems {
+  .item {
+    width: 90px;
+    min-width: 90px;
+  }
+}
+.itemDescription {
+  display: flex;
+  flex-direction: column;
+}
+
+.itemName {
+  font-weight: 500;
+  color: #fff;
+}
+
+.itemName, .itemType, .itemWear {
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+
+.itemType {
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  max-width: 100%;
+}
+
+.subSkins {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-left: 10px;
+  width: 50px;
+
+  > img {
+    height: 40px;
+    filter: drop-shadow(0px 0px 7px rgba(255, 255, 255, 0.1));
+  }
+}
+
+// .flare {
+//   position: absolute;
+//   top:0;
+//   left: 0;
+//   bottom: 0px;
+//   right: 50%;
+//   background: rgba(255, 255, 255, 0.02);
+//   border-right: 1px solid rgba(10, 10, 25, 0.5);
+//   pointer-events: none;
+//   z-index: 2;
+// }
+//
+// .emptyItems {
+//   position: absolute 0;
+//   font-size: 10rem;
+//   display: flex;
+//   align-items: center;
+//   justify-content: center;
+//   opacity: 0.05;
+// }
+//
+// .betContainer {
+//   display: flex;
+//   align-items: center;
+//   flex-direction: column;
+//
+//   position: absolute;
+//   bottom: 20px;
+//   left: calc(50% - 100px);
+//   width: 200px;
+//   z-index: 5;
+// }
+//
+// .beginUpgrade {
+//   background: linear-gradient(to right, #197adf, #fd2b69);
+//
+//   font-size: 1.2rem;
+//   padding: 8px 30px;
+//
+//   &:hover {
+//
+//     background: linear-gradient(to right, #197adf 20%, #fd2b69);
+//   }
+// }
+//
+// .finishUpgrade {
+//   font-size: 1.2rem;
+//   padding: 8px 30px;
+//   opacity: 0.85;
+//   background: #fe3273;
+//   box-shadow: 0px 10px 35px rgba(255, 50, 115, 0.25);
+//
+//   &:hover {
+//     opacity: 1;
+//   }
+// }
+//
+// .chooseText {
+//   text-align: center;
+//   font-size: 1.2rem;
+//   font-weight: 500;
+//   color: #8d92a0;
+//   max-width: 75%;
+// }
+//
+// .emptyWager {
+//   display: flex;
+//   flex-direction: column;
+//   justify-content: center;
+//   align-items: center;
+//
+//   > button {
+//     margin-top: 20px;
+//   }
+// }
+//
+// .compactItems {
+//
+//   .item {
+//     width: 90px;
+//     z-index: 5;
+//     margin: 4px;
+//     filter: drop-shadow(0px 0px 5px rgba(0, 0, 0, 0.3));
+//   }
+// }
+// //
+// // .actionButtons {
+// //   display: flex;
+// //
+// //   > button {
+// //     margin: 0 15px;
+// //   }
+// // }
+// //
+// // .autoCashoutButton {
+// //   background: #2878dd;
+// //   box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.5);
+// //
+// //   &:hover {
+// //     background: #418ae6;
+// //   }
+// // }
+// //
+// // .chooseSkin {
+// //   position: relative;
+// //   // background: linear-gradient(to right, #197adf, #fd2b69);
+// //   box-shadow: -7px 0px 25px rgba(41, 119, 217, 0.4), 6px 0px 25px rgba(239, 49, 112, 0.4), 0px 2px 15px #000;
+// //   font-weight: 500;
+// //   text-transform: none;
+// //   color: #fff;
+// //   overflow: hidden;
+// //
+// //   background: #fff;
+// //
+// //   > span {
+// //     position: relative;
+// //     z-index: 5;
+// //     background-image: linear-gradient(to right, #197adf, #fd2b69);
+// //     background-size: 100%;
+// //     background-position: 100% 0;
+// //     -webkit-background-clip: text;
+// //     -webkit-text-fill-color: transparent;
+// //
+// //     transition: background 0.25s ease;
+// //   }
+// //
+// //   &:hover {
+// //     > span {
+// //       background-size: 150%;
+// //     }
+// //   }
+// // }
+// //
+// // .playerBet {
+// //   display: flex;
+// //   align-items: center;
+// //   justify-content: center;
+// //   text-align: center;
+// //   flex-direction: column;
+// //
+// //   // border: 1px solid #202231;
+// //   // background: #151526;
+// //
+// //   height: 220px;
+// //   flex: 1;
+// //   position: relative;
+// //   border-radius: 50%;
+// //
+// //   &:after {
+// //     content: '';
+// //     position: absolute;
+// //     bottom: 0;
+// //     left: 50%;
+// //     width: 100%;
+// //     height: 19px;
+// //     background-color: transparent;
+// //     border-radius: 50%;
+// //     transform: translate(-50%, 0);
+// //     box-shadow: 0 30px 20px rgba(0, 0, 0, 0.1);
+// //   }
+// // }
+// //
+// // .winnings {
+// //   composes: playerBet;
+// // }
+// //
+// // @keyframes rotate {
+// //   0% {
+// //     transform: rotate(0deg)
+// //   }
+// //
+// //   100% {
+// //     transform: rotate(360deg)
+// //   }
+// // }
+// //
+// // // .splitterSpinner {
+// // //   z-index: 5;
+// // //   animation: rotate 15s linear infinite;
+// // //
+// // //   > span {
+// // //     display: block;
+// // //     height: 35px;
+// // //
+// // //     path {
+// // //       fill: #212231;
+// // //     }
+// // //   }
+// // //
+// // //   > span:nth-child(2) {
+// // //     transform: rotate(180deg);
+// // //   }
+// // // }
+// //
+// // .splitter {
+// //   display: flex;
+// //   align-items: center;
+// //   justify-content: center;
+// //   flex-direction: column;
+// //
+// //   width: 100px;
+// //   height: 100px;
+// //   margin: 0 15px;
+// //   position: relative;
+// //   overflow: hidden;
+// //
+// //   > div:nth-child(1) {
+// //     position: absolute;
+// //     top: 0;
+// //     left: -101%;
+// //     right: 0;
+// //     width: 100%;
+// //
+// //     height: 2px;
+// //     border-radius: 3px;
+// //     will-change: left;
+// //     background: rgba(255, 255, 255, 0.04);
+// //     animation: splitterRight 2.8s cubic-bezier(0.59, 0.43, 0, 1.04) infinite;
+// //   }
+// //
+// //   > div:nth-child(2) {
+// //     position: absolute;
+// //     top: 30%;
+// //     left: -101%;
+// //     right: 0;
+// //     width: 100%;
+// //
+// //     height: 2px;
+// //     border-radius: 3px;
+// //     will-change: left;
+// //     background: rgba(255, 255, 255, 0.14);
+// //     animation: splitterRight 2.3s cubic-bezier(0.59, 0.43, 0, 1.04) infinite;
+// //     animation-delay: 2s;
+// //   }
+// //
+// //   > div:nth-child(3) {
+// //     position: absolute;
+// //     top: 80%;
+// //     left: -101%;
+// //     right: 0;
+// //     width: 20%;
+// //
+// //     height: 2px;
+// //     border-radius: 3px;
+// //     will-change: left;
+// //     background: rgba(255, 255, 255, 0.04);
+// //     animation: splitterRight 6s cubic-bezier(0.59, 0.43, 0, 1.04) infinite;
+// //     animation-delay: 1.5s;
+// //   }
+// //
+// //   > div:nth-child(4) {
+// //     position: absolute;
+// //     top: 45%;
+// //     left: -101%;
+// //     right: 0;
+// //     width: 20%;
+// //
+// //     height: 2px;
+// //     border-radius: 3px;
+// //     will-change: left;
+// //     background: rgba(255, 255, 255, 0.3);
+// //     animation: splitterRight 7s cubic-bezier(0.59, 0.43, 0, 1.04) infinite;
+// //   }
+// //
+// //   > div:nth-child(5) {
+// //     position: absolute;
+// //     top: 45%;
+// //     left: 35%;
+// //
+// //     width: 20px;
+// //     height: 20px;
+// //     border-radius: 50%;
+// //     transform: scale(0);
+// //
+// //     background: rgba(255, 255, 255, 0.02);
+// //     animation: splitterBreathe 5s ease infinite;
+// //   }
+// //
+// //   > div:nth-child(6) {
+// //     position: absolute;
+// //     top: 25%;
+// //     left: 75%;
+// //
+// //     width: 10px;
+// //     height: 10px;
+// //     border-radius: 50%;
+// //     transform: scale(0);
+// //
+// //     background: rgba(255, 255, 255, 0.05);
+// //     animation: splitterBreathe 8s ease infinite;
+// //     animation-delay: 6s;
+// //   }
+// //
+// //   > div:nth-child(7) {
+// //     position: absolute;
+// //     top: 10%;
+// //     left: 85%;
+// //
+// //     width: 5px;
+// //     height: 5px;
+// //     border-radius: 50%;
+// //     transform: scale(0);
+// //
+// //     background: rgba(255, 255, 255, 0.07);
+// //     animation: splitterBreathe 5s ease infinite;
+// //     animation-delay: 1.4s;
+// //   }
+// //
+// //   > div:nth-child(8) {
+// //     position: absolute;
+// //     top: 85%;
+// //     left: 15%;
+// //
+// //     width: 5px;
+// //     height: 5px;
+// //     border-radius: 50%;
+// //     transform: scale(0);
+// //
+// //     background: rgba(255, 255, 255, 0.07);
+// //     animation: splitterBreathe 6s ease infinite;
+// //     animation-delay: 1.2s;
+// //   }
+// //
+// //   > div:nth-child(9) {
+// //     position: absolute;
+// //     top: 85%;
+// //     left: -101%;
+// //     right: 0;
+// //     width: 46%;
+// //
+// //     height: 5px;
+// //     border-radius: 3px;
+// //     will-change: left;
+// //     background: rgba(255, 255, 255, 0.02);
+// //     animation: splitterRight 15s cubic-bezier(0.59, 0.43, 0, 1.04) infinite;
+// //     animation-delay: 2s;
+// //   }
+// //
+// //   > div:nth-child(10) {
+// //     position: absolute;
+// //     top: 60%;
+// //     left: -101%;
+// //     right: 0;
+// //     width: 70%;
+// //
+// //     height: 2px;
+// //     border-radius: 3px;
+// //     will-change: left;
+// //     background: rgba(255, 255, 255, 0.1);
+// //     animation: splitterRight 2.3s cubic-bezier(0.59, 0.43, 0, 1.04) infinite;
+// //     animation-delay: 4s;
+// //   }
+// // }
+// //
+// // @keyframes splitterRight {
+// //   0% {
+// //     left: -101%;
+// //   }
+// //
+// //   100% {
+// //     left: 100%;
+// //   }
+// // }
+// //
+// // @keyframes splitterBreathe {
+// //   0% {
+// //     // opacity: 1;
+// //     transform: scale(0);
+// //   }
+// //
+// //   50% {
+// //     transform: scale(1.03);
+// //   }
+// //
+// //   100% {
+// //     // opacity: 1;
+// //     transform: scale(0);
+// //   }
+// // }
+// //
+// // .empty {
+// //   display: flex;
+// //   align-items: center;
+// //   justify-content: center;
+// //   width: 100%;
+// //   font-size: 8rem;
+// //   color: #202130;
+// //
+// //   animation-name: hvr-hang-sink, hvr-hang;
+// //   animation-duration: .3s, 3s;
+// //   animation-delay: 0s, .3s;
+// //   animation-timing-function: ease-out, ease-in-out;
+// //   animation-iteration-count: 1, infinite;
+// //   animation-fill-mode: forwards;
+// //   animation-direction: normal, alternate;
+// //   z-index: 2;
+// // }
+// //
+// // @keyframes hvr-hang-sink {
+// //   100% {
+// //     -webkit-transform: translateY(15px);
+// //     transform: translateY(px);
+// //   }
+// // }
+// //
+// // @keyframes hvr-hang {
+// //   0% {
+// //     -webkit-transform: translateY(8px);
+// //     transform: translateY(8px);
+// //   }
+// //   50% {
+// //     -webkit-transform: translateY(4px);
+// //     transform: translateY(4px);
+// //   }
+// //   100% {
+// //     -webkit-transform: translateY(8px);
+// //     transform: translateY(8px);
+// //   }
+// // }

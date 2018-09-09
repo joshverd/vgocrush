@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="ManagementApp" class="uk-height-1-1">
+  <head>
+    <title>CSGO Management</title>
+    <link href="https://fonts.googleapis.com/css?family=Roboto:400,700" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="/vendor/uikit/dist/css/uikit.min.css" />
+    <link rel="stylesheet" type="text/css" href="/vendor/angucomplete-alt/angucomplete-alt.css" />
+    <link rel="stylesheet" type="text/css" href="/management/style/style.css" />
+    <base href="/_acp" />
+  </head>
+  <body class="uk-height-1-1">
+    <div class="uk-height-1-1 uk-flex uk-flex-column uk-width-1-1 uk-position-fixed">
+      <div class="topbar">
+        <div class="uk-flex-1">Administration</div>
+        <div class="uk-text-right"><a href="/_acp/lock"><span uk-icon="icon: lock"></span> Lock</a></div>
+      </div>
+      <div class="uk-flex uk-flex-1">
+        <div class="sidebar">
+          <div class="header">
+            CSGO
+          </div>
+          <ul class="uk-nav">
+            <li ng-if="locals.admin"><a ui-sref="stats"><span uk-icon="icon: world"></span> Statistics</a></li>
+            <li ng-if="locals.admin"><a ui-sref="cases"><span uk-icon="icon: folder"></span> Cases</a></li>
+            <li ng-if="locals.admin"><a ui-sref="storage"><span uk-icon="icon: cart"></span> Storage</a></li>
+            <li ng-if="locals.admin"><a ui-sref="settings"><span uk-icon="icon: settings"></span> Settings</a></li>
+            <li ng-if="locals.admin"><a ui-sref="promotions"><span uk-icon="icon: tag"></span> Promotions</a></li>
+          </ul>
+          <ul class="uk-nav">
+            <li><a ui-sref="players">Players</a></li>
+            <li ng-if="locals.admin"><a ui-sref="playerWinners">Big Winners</a></li>
+            <li ng-if="locals.admin"><a ui-sref="playerDeposits">Skin Deposits</a></li>
+            <li ng-if="locals.admin"><a ui-sref="playerWithdraws">Withdrawals</a></li>
+          </ul>
+        </div>
+        <div class="uk-flex uk-flex-1 uk-margin-top">
+          <div class="uk-width-1-1 uk-overflow-auto" ui-view></div>
+        </div>
+      </div>
+    </div>
+    <script type="text/javascript">var locals = {'admin': <%-admin? 1: 0%>}</script>
+    <script type="text/javascript" src="/vendor/angular/angular.min.js"></script>
+    <script type="text/javascript" src="/vendor/angular-ui-router/release/angular-ui-router.min.js"></script>
+    <script type="text/javascript" src="/vendor/angucomplete-alt/angucomplete-alt.js"></script>
+    <script type="text/javascript" src="/vendor/jquery/dist/jquery.min.js"></script>
+    <script type="text/javascript" src="/vendor/uikit/dist/js/uikit.min.js"></script>
+
+    <script type="text/javascript" src="/management/app.js"></script>
+    <script type="text/javascript" src="/management/components/cases/directive.js"></script>
+    <script type="text/javascript" src="/management/components/createCase/directive.js"></script>
+    <script type="text/javascript" src="/management/components/caseCreatorList/directive.js"></script>
+    <script type="text/javascript" src="/management/components/case/directive.js"></script>
+    <script type="text/javascript" src="/management/components/storage/directive.js"></script>
+    <script type="text/javascript" src="/management/components/players/directive.js"></script>
+    <script type="text/javascript" src="/management/components/players/bigWinners.js"></script>
+    <script type="text/javascript" src="/management/components/players/deposits.js"></script>
+    <script type="text/javascript" src="/management/components/players/withdraws.js"></script>
+    <script type="text/javascript" src="/management/components/player/directive.js"></script>
+    <script type="text/javascript" src="/management/components/settings/directive.js"></script>
+    <script type="text/javascript" src="/management/components/promotions/directive.js"></script>
+    <script type="text/javascript" src="/management/components/stats/stats.js"></script>
+  </body>
+</html>

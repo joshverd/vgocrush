@@ -1,0 +1,27 @@
+
+.container {
+  display: flex;
+  flex-direction: column;
+
+  padding: 15px 45px;
+  box-sizing: border-box;
+
+  flex: 1;
+
+  overflow: auto;
+}
+
+.createModalContainer {
+  width: 100%;
+  max-width: 40vw;
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: stretch;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.modalBody {
+  padding: 10px;
+  box-sizing: border-box;
+}

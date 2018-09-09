@@ -1,0 +1,41 @@
+
+<div class="uk-margin-top uk-padding">
+
+  <div class="uk-card uk-card-default uk-width-1-1">
+    <div class="uk-card-header">
+      <div class="uk-grid-small uk-flex-middle" uk-grid>
+        <div class="uk-width-expand">
+          <h3 class="uk-card-title uk-margin-remove-bottom">Case Creator List</h3>
+          <p class="uk-text-meta uk-margin-remove-top">Extra items to add into case creator/skin swapping</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="uk-card-body">
+      <div class="uk-margin-top uk-margin-large-bottom">
+        <div>
+          <table class="uk-table">
+            <thead>
+              <tr>
+                <td colspan="2">Item Name</td>
+              </tr>
+            </thead>
+            <tbody>
+              <tr ng-repeat="item in items">
+                <td><input class="uk-input" ng-value="item" disabled /></td>
+                <td><button class="uk-button uk-button-danger" ng-disabled="busy" ng-click="removeItem(item)">Remove</button></td>
+              </tr>
+              <tr>
+                <td><input class="uk-input" ng-model="itemName" placeholder="Item name..." ng-disabled="busy" /></td>
+                <td><button class="uk-button uk-button-primary" ng-disabled="busy || !itemName.length" ng-click="addItem()">Add Item</button></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+    <div class="uk-card-footer">
+
+    </div>
+  </div>
+</div>

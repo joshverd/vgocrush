@@ -1,0 +1,253 @@
+
+<div ng-if="loading" class="uk-text-center uk-margin-top">
+  Loading...
+</div>
+
+<div ng-if="error" class="uk-text-center uk-text-danger uk-margin-top">
+  {{ error }}
+</div>
+
+<div ng-if="!loading && !error" class="uk-margin-top uk-padding">
+
+  <div class="uk-card uk-card-default uk-width-1-1">
+    <div class="uk-card-header">
+      <div class="uk-grid-small uk-flex-middle" uk-grid>
+        <div class="uk-width-auto">
+            <img class="uk-border-circle" width="40" height="40" ng-src="{{ player.avatarFull }}">
+        </div>
+        <div class="uk-width-expand">
+          <h3 class="uk-card-title uk-margin-remove-bottom">{{player.displayName}}</h3>
+          <p class="uk-text-meta uk-margin-remove-top" ng-if="!free">{{player.id}} (Level: {{player.level}})</p>
+        </div>
+        <div class="uk-width-expand uk-text-right">
+          <button class="uk-button uk-button-primary" ng-click="refresh()">Refresh</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="uk-card-body">
+
+      <ul uk-tab>
+        <li><a href="#">General</a></li>
+        <li><a href="#">Campaigns</a></li>
+        <li><a href="#">Inventory</a></li>
+        <li><a href="#">Balance History</a></li>
+        <li><a href="#">Cases</a></li>
+      </ul>
+
+      <div class="uk-switcher uk-margin-top uk-margin-large-bottom">
+        <div>
+          <div class="uk-flex">
+            <div class="uk-flex-1 uk-text-center">
+              <h3 class="uk-margin-remove">{{ player.balance | currency }}</h3>
+              <span class="uk-text-muted">Balance</span>
+            </div>
+            <div class="uk-flex-1 uk-text-center">
+              <h3 class="uk-margin-remove">{{ player.totalWon | currency }}</h3>
+              <span class="uk-text-muted">Total Won</span>
+            </div>
+            <div class="uk-flex-1 uk-text-center">
+              <h3 class="uk-margin-remove">{{ player.totalDeposit  || 0 | currency }}</h3>
+              <span class="uk-text-muted">Total Deposit</span>
+            </div>
+            <div class="uk-flex-1 uk-text-center">
+              <h3 class="uk-margin-remove">{{ player.totalSkinDeposit  || 0 | currency }}</h3>
+              <span class="uk-text-muted">Total SkinDeposit</span>
+            </div>
+            <div class="uk-flex-1 uk-text-center">
+              <h3 class="uk-margin-remove">{{ player.totalWithdrawn | currency }}</h3>
+              <span class="uk-text-muted">Total Withdrawn</span>
+            </div>
+            <div class="uk-flex-1 uk-text-center">
+              <h3 class="uk-margin-remove">{{ player.id }}</h3>
+              <span class="uk-text-muted">Steam ID</span>
+            </div>
+          </div>
+
+          <h3>Details</h3>
+          <table class="uk-table uk-table-striped">
+            <thead>
+              <tr>
+                <th>Key</th>
+                <th>Value</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr ng-repeat="(key, value) in player">
+                <td>{{ key }}</td>
+                <td style="word-break: break-all;">{{ value }}</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div>
+          <div ng-if="!campaigns.length" class="uk-text-center uk-text-danger">User does not have any campaigns</div>
+
+
+          <div ng-repeat="c in campaigns">
+            <div class="uk-grid">
+              <div class="uk-width-1-2">
+                <h3 class="uk-margin-remove" ng-if="c.type!='code'">{{c.name}}</h3>
+                <h3 class="uk-margin-remove" ng-if="c.type=='code'">Affiliate Code</h3>
+              </div>
+              <div class="uk-width-1-2 uk-text-right">
+                <button ng-if="locals.admin" class="uk-button uk-button-primary" ng-click="addCampaignBalance(c.id)">Add Balance</button>
+                <button class="uk-button uk-button-danger" ng-if="c.type == 'code'" ng-click="changeCampaignCode(c.id, c.code)">Change Code (Overwrite)</button>
+                <button class="uk-button uk-button-danger" ng-if="c.type == 'code'" ng-click="changeCampaignReward(c.id, c.reward)">Change Reward</button>
+                <button ng-if="locals.admin" class="uk-button uk-button-danger" ng-click="removeCampaignBalance(c.id)">Remove Balance</button>
+                <button ng-if="locals.admin" class="uk-button uk-button-danger" ng-click="clearCampaignBalance(c.id)">Clear Balance</button>
+                <button class="uk-button uk-button-danger" ng-click="deleteCampaign(c.id)">Delete</button>
+              </div>
+            </div>
+
+            <table class="uk-table uk-table-striped">
+              <thead>
+                <tr>
+                  <th>Name</th>
+                  <th>Value</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr ng-repeat="(key, value) in c">
+                  <td>{{ key }}</td>
+                  <td style="word-break: break-all;">{{ value }}</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <div>
+          <div ng-if="locals.admin" class="uk-flex">
+            <div class="uk-flex-1 uk-margin-right">
+              <angucomplete-alt placeholder="Item to add"
+                pause="300"
+                remote-url="/_acp/items/find?search="
+                remote-url-data-field="results"
+                selected-object="itemTab.item"
+                search-fields="name"
+                title-field="name"
+                image-field="icon"
+                minlength="1"
+                input-class="uk-input"
+                match-class="highlight"></angucomplete>
+            </div>
+            <div>
+              <button class="uk-button uk-button-primary" ng-click="addItem()">Add Item</button>
+            </div>
+          </div>
+          <table class="uk-table uk-table-striped">
+            <thead>
+              <tr>
+                <th>Name</th>
+                <th>Case</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr ng-repeat="item in items">
+                <td>{{ item.name }}</td>
+                <td><a ui-sref="case({ id: item.caseId })">{{ item.caseId}}</a></td>
+                <td>
+                  <button class="uk-button uk-button-danger" ng-click="removeItem(item.id)">Remove</button>
+                  <button class="uk-button uk-button-primary" ng-click="toggleItemState(item.id)">{{ item.state === 'BUSY' ? 'Unlock' : 'Lock' }}</button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+          <p ng-if="items.length" class="uk-text-muted">An item can be locked because it is currently in an active trade offer</p>
+          <div ng-if="!items.length" class="uk-text-center uk-text-danger">User does not have any items</div>
+        </div>
+
+        <div>
+
+          <div class="uk-overflow-auto" style="max-height: 500px;">
+            <table class="uk-table uk-table-hover uk-table-middle">
+              <caption>Latest transactions start from the top ( Latest -> Oldest )</option>
+                <thead>
+                  <tr>
+                    <th width="5%">Change</th>
+                    <th width="10%">Date</th>
+                    <th width="10%">New Bal.</th>
+                    <th width="10%">Old Bal.</th>
+                    <th width="25%"></th>
+                    <th>Details</th>
+                </thead>
+                <tbody>
+                  <tr ng-repeat="history in balanceHistory | orderBy: '-date'">
+                    <td>{{ history.balance | currency }}</td>
+                    <td>{{ history.date | date:'MM/dd/yyyy @ h:mma' }}</td>
+                    <td>{{ history._newBalance | currency }}</td>
+                    <td>{{ history._oldBalance | currency }}</td>
+                    <td>{{ history.meta.name || '' }}</td>
+                    <td>{{ history.meta }}</td>
+                  </tr>
+                </tbody>
+            </table>
+          </div>
+
+          <br />
+          <br />
+
+          <table class="uk-table uk-table-hover uk-table-middle">
+            <caption>Latest admin panel transactions</option>
+              <thead>
+                <tr>
+                  <th width="5%">Change</th>
+                  <th width="10%">Date</th>
+                  <th width="25%"></th>
+                  <th>Details</th>
+              </thead>
+              <tbody>
+                <tr ng-repeat="history in adminBalanceHistory | orderBy: '-date'">
+                  <td>{{ history.balance | currency }}</td>
+                  <td>{{ history.date | date:'MM/dd/yyyy @ h:mma' }}</td>
+                  <td>{{ history.meta.name || '' }}</td>
+                  <td>{{ history.meta }}</td>
+                </tr>
+              </tbody>
+          </table>
+        </div>
+
+        <div>
+          <table class="uk-table uk-table-striped">
+            <thead>
+              <tr>
+                <th>Name</th>
+                <th>Cost</th>
+                <th>Openings</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr ng-repeat="case in player.cases">
+                <td><a target="_blank" ui-sref="case({ id: case.id, playerId: case.playerId })">{{ case.name }}</a></td>
+                <td>{{ case.price | currency }}</td>
+                <td>{{ case.openingsCount | number }}</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+      </div>
+    </div>
+    <div class="uk-card-footer">
+      <div class="uk-grid">
+        <div class="uk-width-1-2">
+          <button class="uk-button uk-button-primary" ng-click="giveBalance()">{{ locals.admin ? 'Give' : 'Transfer' }} Balance</button>
+          <button ng-if="locals.admin" class="uk-button uk-button-primary" ng-click="removeBalance()">Remove Balance</button>
+          <button class="uk-button uk-button-danger" ng-click="bypassWithdrawal()">Bypass Withdrawal Limit</button>
+          <button class="uk-button uk-button-danger" ng-click="player.banned = !player.banned">{{ player.banned ? 'Unban' : 'Ban' }}</button>
+          <div ng-if="locals.admin" class="uk-margin-top">
+            <button class="uk-button uk-button-danger" ng-click="togglePair(false)">Bad Pair</button>
+            <button class="uk-button uk-button-primary" ng-click="togglePair(true)">Good Pair</button>
+          </div>
+        </div>
+        <div class="uk-width-1-2 uk-text-right">
+          <label class="uk-margin-right"><input type="checkbox" ng-model="player.disableOpeningCase" /> Disable Opening Cases</label>
+          <label class="uk-margin-right"><input type="checkbox" ng-model="player.lockWithdraws" /> Lock Withdraws</label>
+          <label><input type="checkbox" ng-model="player.lockDeposits" /> Lock Deposits</label>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

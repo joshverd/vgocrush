@@ -1,0 +1,47 @@
+
+.offers {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.settingsDialog {
+  max-width: 1200px;
+}
+
+.footer {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 15px;
+
+  > button {
+    margin-left: 10px;
+  }
+}
+
+.lost {
+  color: #fe3273;
+}
+
+.promotion {
+  display: flex;
+  justify-content: center;
+}
+
+.promotionContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  max-width: 400px;
+
+  > h1 {
+    text-align: center;
+    margin: 0;
+    margin-bottom: 15px;
+
+    > div {
+      font-weight: 400;
+      font-size: 0.9rem;
+    }
+  }
+}

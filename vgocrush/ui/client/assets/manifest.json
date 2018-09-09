@@ -1,0 +1,7 @@
+{
+  "name": "VgoCrush",
+  "short_name": "VgoCrush",
+  "start_url": "/",
+  "display": "standalone",
+  "gcm_sender_id": "482941778795"
+}
